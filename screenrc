@@ -1,0 +1,4 @@
+backtick 2 5 5 $HOME/prj/bat.sh
+escape ``
+hardstatus alwayslastline
+hardstatus string '%{= kG}[ %{G}%H %{g}][%= %{=kw}%?%-Lw%?%{r}(%{W}%n*%f%t%?(%u)%?%{r})%{w}%?%+Lw%?%?%= %{g}]%2`[%{B}%Y-%m-%d %{W}%c %{g}]'

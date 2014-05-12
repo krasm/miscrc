@@ -190,6 +190,22 @@
   <chainQuitKey>C-g</chainQuitKey>
 
   <!-- Keybindings for desktop switching -->
+  <!-- multimedia -->
+  <keybind key="XF86AudioRaiseVolume">
+	<action name="Execute">
+		<command>amixer set Master 10+</command>
+	</action>
+  </keybind>
+  <keybind key="XF86AudioLowerVolume">
+	<action name="Execute">
+		<command>amixer set Master 10-</command>
+	</action>
+  </keybind>
+  <keybind key="XF86AudioMute">
+	<action name="Execute">
+		<command>~/opt/bin/mute</command>
+	</action>
+  </keybind>
   <keybind key="C-A-Left">
     <action name="GoToDesktop"><to>left</to><wrap>no</wrap></action>
   </keybind>

@@ -10,12 +10,12 @@
 <menu id="root-menu" label="Openbox 3">
   <item label="Web Browser">
       <action name="Execute">
-          <execute>chromium</execute>
+          <execute>x-www-browser</execute>
       </action>
   </item>
   <item label="Terminal">
       <action name="Execute">
-          <execute>urxvt</execute>
+          <execute>x-terminal-emulator</execute>
       </action>
   </item>
   <item label="Spotify">

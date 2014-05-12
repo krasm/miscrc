@@ -237,7 +237,7 @@
   </keybind>
   <keybind key="W-Return">
       <action name="Execute">
-          <execute>urxvt</execute>
+          <execute>x-terminal-emulator</execute>
       </action>
   </keybind>
   <keybind key="A-F4">

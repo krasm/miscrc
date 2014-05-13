@@ -33,6 +33,11 @@
           <execute>libreoffice</execute>
       </action>
   </item>
+  <item label="VPN">
+	  <action name="Execute">
+		  <execute>~/opt/bin/vpn</execute>
+	  </action>
+  </item>
   <menu id="applications-menu"/>
   <menu id="preferences-menu"/>
   <menu id="administration-menu"/>

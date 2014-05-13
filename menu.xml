@@ -28,6 +28,11 @@
           <execute>~/opt/eclipse/eclipse</execute>
       </action>
   </item>
+  <item label="Office">
+      <action name="Execute">
+          <execute>libreoffice</execute>
+      </action>
+  </item>
   <menu id="applications-menu"/>
   <menu id="preferences-menu"/>
   <menu id="administration-menu"/>

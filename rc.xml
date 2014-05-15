@@ -251,6 +251,21 @@
   <keybind key="W-m">
     <action name="ToggleMaximize"/>
   </keybind>
+  <keybind key="W-S-m">
+      <action name="Execute">
+          <execute>fling -f</execute>
+      </action>
+  </keybind>
+  <keybind key="W-S-b">
+      <action name="Execute">
+          <execute>fling bottom</execute>
+      </action>
+  </keybind>
+  <keybind key="W-S-t">
+      <action name="Execute">
+          <execute>fling top</execute>
+      </action>
+  </keybind>
   <keybind key="W-Return">
       <action name="Execute">
           <execute>x-terminal-emulator</execute>

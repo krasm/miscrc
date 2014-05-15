@@ -18,9 +18,19 @@
           <execute>x-terminal-emulator</execute>
       </action>
   </item>
+  <item label="File Manager">
+      <action name="Execute">
+          <execute>pcmanfm</execute>
+      </action>
+  </item>
   <item label="Spotify">
       <action name="Execute">
           <execute>spotify</execute>
+      </action>
+  </item>
+  <item label="Emacs">
+      <action name="Execute">
+          <execute>emacs</execute>
       </action>
   </item>
   <item label="Eclipse">

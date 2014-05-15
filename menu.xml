@@ -38,6 +38,18 @@
 		  <execute>~/opt/bin/vpn</execute>
 	  </action>
   </item>
+  <separator/>
+  <item label="Calibre">
+	  <action name="Execute">
+		  <execute>calibre</execute>
+	  </action>
+  </item>
+  <item label="The Skype">
+	  <action name="Execute">
+		  <execute>skype</execute>
+	  </action>
+  </item>
+  <separator/>
   <menu id="applications-menu"/>
   <menu id="preferences-menu"/>
   <menu id="administration-menu"/>

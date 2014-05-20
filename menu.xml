@@ -15,7 +15,7 @@
   </item>
   <item label="Terminal">
       <action name="Execute">
-          <execute>rxvt</execute>
+          <execute>urxvt</execute>
       </action>
   </item>
   <item label="File Manager">

@@ -10,12 +10,12 @@
 <menu id="root-menu" label="Openbox 3">
   <item label="Web Browser">
       <action name="Execute">
-          <execute>x-www-browser</execute>
+          <execute>chromium</execute>
       </action>
   </item>
   <item label="Terminal">
       <action name="Execute">
-          <execute>x-terminal-emulator</execute>
+          <execute>urxvt</execute>
       </action>
   </item>
   <item label="File Manager">
@@ -48,11 +48,6 @@
 		  <execute>~/opt/bin/vpn</execute>
 	  </action>
   </item>
-  <menu id="applications-menu"/>
-  <menu id="preferences-menu"/>
-  <menu id="administration-menu"/>
-  <separator/>
-  <menu id="terminals-menu"/>
   <separator/>
   <item label="Reconfigure">
     <action name="Reconfigure" />

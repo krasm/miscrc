@@ -268,7 +268,7 @@
   </keybind>
   <keybind key="W-Return">
       <action name="Execute">
-          <execute>x-terminal-emulator</execute>
+          <execute>rxvt</execute>
       </action>
   </keybind>
   <keybind key="A-F4">

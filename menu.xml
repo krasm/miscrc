@@ -10,12 +10,12 @@
 <menu id="root-menu" label="Openbox 3">
   <item label="Web Browser">
       <action name="Execute">
-          <execute>x-www-browser</execute>
+          <execute>chromium</execute>
       </action>
   </item>
   <item label="Terminal">
       <action name="Execute">
-          <execute>x-terminal-emulator</execute>
+          <execute>rxvt</execute>
       </action>
   </item>
   <item label="File Manager">
@@ -45,7 +45,7 @@
   </item>
   <item label="VPN">
 	  <action name="Execute">
-		  <execute>~/opt/bin/vpn</execute>
+		<execute>~/opt/forticlientsslvpn/forticlientsslvpn</execute>
 	  </action>
   </item>
   <separator/>

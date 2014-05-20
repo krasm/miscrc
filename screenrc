@@ -1,4 +1,5 @@
-backtick 2 5 5 bat.sh
 escape ``
+backtick 102 60 60 bat.sh
 hardstatus alwayslastline
-hardstatus string '%{= kG}[ %{G}%H %{g}][%= %{=kw}%?%-Lw%?%{r}(%{W}%n*%f%t%?(%u)%?%{r})%{w}%?%+Lw%?%?%= %{g}]%2`[%{B}%Y-%m-%d %{W}%c %{g}]'
+hardstatus string '%{= kG}[ %{G}%H %{g}][%= %{=kw}%?%-Lw%?%{r}(%{W}%n*%f%t%?(%u)%?%{r})%{w}%?%+Lw%?%?%= %{g}]%102`[%{B}%Y-%m-%d %{W}%c %{g}]'
+#caption always "%{.kc}%D %d.%m.%Y %=%{.kg} %4` %{.kc}%0c"

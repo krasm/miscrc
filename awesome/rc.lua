@@ -396,6 +396,8 @@ globalkeys = awful.util.table.join(
                   awful.util.getdir("cache") .. "/history_eval")
               end),
 
+    -- xscreensaver
+    awful.key ({modkey,          }, "l",      function(c) awful.util.spawn("xscreensaver-command -l") end),
     -- xrandr
     awful.key({}, "XF86Display", xrandr)
 )

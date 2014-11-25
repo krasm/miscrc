@@ -1,22 +1,14 @@
 #!/bin/sh
 
-wifi=`/sbin/iwlist wlan0 scanning| grep ESSID: | tr -s '"' ' ' | cut -d ' ' -f3`
-info=`acpi | tr -s , ' ' | cut -d ' '  -f3` 
-stat=`acpi | tr -s , ' ' | cut -d ' '  -f4` 
-temp=`acpi -t | tr -s , ' ' | cut -d ' ' -f4 | sort -nr | head -n1`
-pct=`acpi | tr -s , ' ' | cut -d  ' ' -f5`
-color="\005{..g}"
+STATE=`cat /proc/acpi/battery/BAT0/state | sed -n 's/charging state:\s*\(.\+\)\s*/\1/p'`
+CAPACITY=`cat /proc/acpi/battery/BAT0/info | sed -n 's/design capacity:\s*\([0-9]\+\)\(.\+\)/\1/p'`
+CURRENT=`cat /proc/acpi/battery/BAT0/state | sed -n 's/remaining capacity:\s*\([0-9]\+\)\(.\+\)/\1/p'`
 
-case $info in
-    Discharging) color="\005{..r}" ;;
-esac
-
-result=""
-if [ "x" != "x"$wifi ] ; then 
-	result="$result [$wifi]"
+if [ $STATE = 'discharging' ] ; then 
+    echo -n '-'
+elif [ $STATE = 'charging' ] ; then
+    echo -n '+'
 fi
-result="$result[$color$stat \005{..d}$temp"
 
-result="$result]"
+echo `dc -e "2 k $CURRENT $CAPACITY / 100 * p"`
 
-echo -e $result

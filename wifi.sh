@@ -1,2 +1,3 @@
 #!/bin/sh
-iw dev wlp3s0 link | perl -n -e'/SSID:\s+(.+$)/ && print $1'|xargs echo -n -e
+
+/sbin/iw dev  wlan0 link |  sed  -n 's/SSID:\s*\(.\+\)\s*/\1/p' | sed -e 's/^[ \t]*//' -e 's/[ \t]*$//'

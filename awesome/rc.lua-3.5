@@ -550,6 +550,10 @@ globalkeys = awful.util.table.join(
                  vicious.force({ alsawidget.bar })
                  alsawidget.notify()
     end),
+    awful.key({ }, "XF86AudioMicMute", function()
+          awful.util.spawn("amixer sset Capture toggle")
+          alsawidget.notify()
+    end),
     awful.key({ }, "XF86AudioMute", function()
                  awful.util.spawn("amixer sset " .. alsawidget.channel .. " toggle")
                  -- The 2 following lines were needed at least on my configuration, otherwise it would get stuck muted

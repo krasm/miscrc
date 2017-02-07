@@ -1,6 +1,6 @@
 XTerm*locale: true
 XTerm*saveLines: 4096
-XTerm*font: -misc-fixed-bold-r-*-*-15-*-*-*-*-*-iso8859-2
+XTerm*font: -misc-fixed-*-*-*-*-15-*-*-*-*-*-iso8859-2
 
 ! Black
 *color0:   #111111
@@ -38,7 +38,5 @@ ntialias: true
 Xft.hinting: true
 Xft.hintstyle: hintlight
 Xft.rgba: rgb
-URxvt.font: xft:DejaVu Sans Mono-12
 URxvt.letterSpace: -1
 
-!URxvt.font: xft:monaco:size=10

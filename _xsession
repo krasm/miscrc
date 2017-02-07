@@ -1,0 +1,4 @@
+exec setxkbmap -model pc104 -layout us,pl
+exec xscreensaver -no-splash & 
+exec xrdb -merge ~/.Xresources &
+awesome

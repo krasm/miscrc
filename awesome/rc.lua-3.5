@@ -40,6 +40,7 @@ end
 -- {{{ Variable definitions
 -- Themes define colours, icons, font and wallpapers.
 beautiful.init("/usr/share/awesome/themes/default/theme.lua")
+beautiful.wallpaper=os.getenv("HOME") .. "/" .. ".wallpaper.jpg"
 
 -- This is used later as the default terminal and editor to run.
 terminal = "xterm"
@@ -334,7 +335,8 @@ local layouts =
 -- {{{ Wallpaper
 if beautiful.wallpaper then
     for s = 1, screen.count() do
-        gears.wallpaper.maximized(beautiful.wallpaper, s, true)
+--        gears.wallpaper.maximized(beautiful.wallpaper, s, true)
+        gears.wallpaper.fit(beautiful.wallpaper, s, '#000000')
     end
 end
 -- }}}
@@ -372,7 +374,7 @@ menubar.utils.terminal = terminal -- Set the terminal for applications that requ
 -- {{{ Wibox
 -- Battery widget
 mybattery = wibox.widget.textbox() 
-vicious.register(mybattery, vicious.widgets.bat, " Battery: $2% ", 30, "BAT0")
+vicious.register(mybattery, vicious.widgets.bat, "🔋$2% ", 1, "BAT0")
 -- Create a textclock widget
 mytextclock = awful.widget.textclock()
 
@@ -548,6 +550,10 @@ globalkeys = awful.util.table.join(
                  awful.util.spawn("amixer sset " .. alsawidget.channel .. " " .. alsawidget.step .. "-")
                  vicious.force({ alsawidget.bar })
                  alsawidget.notify()
+    end),
+    awful.key({ }, "XF86AudioMicMute", function()
+          awful.util.spawn("amixer sset Capture toggle")
+          alsawidget.notify()
     end),
     awful.key({ }, "XF86AudioMute", function()
                  awful.util.spawn("amixer sset " .. alsawidget.channel .. " toggle")

@@ -38,9 +38,9 @@ ntialias: true
 Xft.hinting: true
 Xft.hintstyle: hintlight
 Xft.rgba: rgb
+<<<<<<< HEAD
 !URxvt.letterSpace: -1
 
 
 XTerm*locale: true
 XTerm*saveLines: 4096
-XTerm*font: -misc-fixed-medium-*-*-*-20-*-*-*-*-*-iso8859-2

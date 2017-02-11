@@ -1,6 +1,8 @@
+xterm*faceName: Terminus Regular
+xterm*faceSize: 12
+XTerm*loginShell: true
 XTerm*locale: true
 XTerm*saveLines: 4096
-XTerm*font: -misc-fixed-medium-r-*-*-20-*-*-*-*-*-iso8859-2
 
 ! Black
 *color0:   #111111
@@ -38,8 +40,6 @@ ntialias: true
 Xft.hinting: true
 Xft.hintstyle: hintlight
 Xft.rgba: rgb
-<<<<<<< HEAD
-!URxvt.letterSpace: -1
 
 
 XTerm*locale: true

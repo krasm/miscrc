@@ -44,3 +44,5 @@ Xft.rgba: rgb
 
 XTerm*locale: true
 XTerm*saveLines: 4096
+
+xterm*metaSendsEscape: true

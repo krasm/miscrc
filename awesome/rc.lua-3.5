@@ -12,6 +12,7 @@ local naughty = require("naughty")
 local menubar = require("menubar")
 local vicious = require("vicious")
 
+
 -- {{{ Error handling
 -- Check if awesome encountered an error during startup and fell back to
 -- another config (This code will only ever execute for the fallback config)
@@ -189,6 +190,87 @@ end
 
 
 -- {{{ sound
+-- Volume widget
+
+-- volumecfg = {}
+-- volumecfg.cardid  = 0
+-- volumecfg.channel = "Master"
+-- volumecfg.widget = widget({ type = "textbox", name = "volumecfg.widget", align = "right" })
+
+-- volumecfg_t = awful.tooltip({ objects = { volumecfg.widget },})
+-- volumecfg_t:set_text("Volume")
+
+-- -- command must start with a space!
+-- volumecfg.mixercommand = function (command)
+--        local fd = io.popen("amixer -c " .. volumecfg.cardid .. command)
+--        local status = fd:read("*all")
+--        fd:close()
+
+--        local volume = string.match(status, "(%d?%d?%d)%%")
+--        volume = string.format("% 3d", volume)
+--        status = string.match(status, "%[(o[^%]]*)%]")
+--        if string.find(status, "on", 1, true) then
+--                volume = volume .. "%"
+--        else
+--                volume = volume .. "M"
+--        end
+--        volumecfg.widget.text = volume
+-- end
+-- volumecfg.update = function ()
+--        volumecfg.mixercommand(" sget " .. volumecfg.channel)
+-- end
+-- volumecfg.up = function ()
+--        volumecfg.mixercommand(" sset " .. volumecfg.channel .. " 1%+")
+-- end
+-- volumecfg.down = function ()
+--        volumecfg.mixercommand(" sset " .. volumecfg.channel .. " 1%-")
+-- end
+-- volumecfg.toggle = function ()
+--        volumecfg.mixercommand(" sset " .. volumecfg.channel .. " toggle")
+-- end
+-- volumecfg.widget:buttons({
+--        button({ }, 4, function () volumecfg.up() end),
+--        button({ }, 5, function () volumecfg.down() end),
+--        button({ }, 1, function () volumecfg.toggle() end)
+-- })
+-- volumecfg.update()
+
+local volumewidget = wibox.widget.textbox()
+local function mixercommand(command)
+       local fd = io.popen("amixer -c " .. "0" .. command)
+       local status = fd:read("*all")
+       fd:close()
+
+       local volume = string.match(status, "(%d?%d?%d)%%")
+       volume = string.format("% 3d", volume)
+       status = string.match(status, "%[(o[^%]]*)%]")
+       if string.find(status, "on", 1, true) then
+               volume = volume .. "%"
+       else
+               volume = volume .. "M"
+       end
+       return volume
+end
+
+local function mixercommand_up()
+   mixercommand(" sset " .. "Master" .. " 1%+")
+end
+local function mixercommand_down()
+   mixercommand(" sset " .. "Master" .. " 1%-")
+end
+local function mixercommand_toggle ()
+   mixercommand(" sset " .. "Master" .. " toggle")
+end
+
+-- initialize
+volumewidget:set_text(mixercommand(" sget Master"))
+-- Setup the timer
+volumetimer = timer { timeout = 1 }
+volumetimer:connect_signal("timeout",
+                           function() volumewidget:set_text(mixercommand(" sget Master")) end)
+volumetimer:start()
+
+
 local alsawidget =
 {
       channel = "Master",
@@ -458,6 +540,7 @@ for s = 1, screen.count() do
     local right_layout = wibox.layout.fixed.horizontal()
     if s == 1 then right_layout:add(wibox.widget.systray()) end
     right_layout:add(alsawidget.bar)
+    right_layout:add(volumewidget)
     right_layout:add(mybattery)
     right_layout:add(mytextclock)
     right_layout:add(mylayoutbox[s])
@@ -542,26 +625,17 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey }, "p", function() menubar.show() end),
     awful.key({}, "XF86Display", xrandr),
     awful.key({ }, "XF86AudioRaiseVolume", function()
-                 awful.util.spawn("amixer sset " .. alsawidget.channel .. " " .. alsawidget.step .. "+")
-                 vicious.force({ alsawidget.bar })
-                 alsawidget.notify()
+          mixercommand_up()
     end),
     awful.key({ }, "XF86AudioLowerVolume", function()
-                 awful.util.spawn("amixer sset " .. alsawidget.channel .. " " .. alsawidget.step .. "-")
-                 vicious.force({ alsawidget.bar })
-                 alsawidget.notify()
+          mixercommand_down()
     end),
     awful.key({ }, "XF86AudioMicMute", function()
           awful.util.spawn("amixer sset Capture toggle")
           alsawidget.notify()
     end),
     awful.key({ }, "XF86AudioMute", function()
-                 awful.util.spawn("amixer sset " .. alsawidget.channel .. " toggle")
-                 -- The 2 following lines were needed at least on my configuration, otherwise it would get stuck muted
-                 awful.util.spawn("amixer sset " .. "Speaker" .. " unmute")
-                 awful.util.spawn("amixer sset " .. "Headphone" .. " unmute")
-                 vicious.force({ alsawidget.bar })
-                 alsawidget.notify()
+          mixercommand_toggle()
     end)
 )
 

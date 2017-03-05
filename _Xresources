@@ -4,6 +4,12 @@ XTerm*loginShell: true
 XTerm*locale: true
 XTerm*saveLines: 4096
 xterm*metaSendsEscape: true
+urxvt*faceName: Terminus Regular
+urxvt*faceSize: 12
+urxvt*loginShell: true
+urxvt*locale: true
+urxvt*saveLines: 4096
+urxvt*metaSendsEscape: true
 
 ! Black
 *color0:   #111111

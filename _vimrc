@@ -41,3 +41,7 @@ set laststatus=2   " Always show the statusline
 set encoding=utf-8 " Necessary to show Unicode glyphs
 
 let g:pymode_options_colorcolumn = 1
+let g:pymode_trim_whitespaces = 1
+let g:pymode_quickfix_minheight = 3
+let g:pymode_quickfix_maxheight = 6
+let g:pymode_python = 'python'

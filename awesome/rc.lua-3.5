@@ -237,19 +237,19 @@ end
 
 local volumewidget = wibox.widget.textbox()
 local function mixercommand(command)
-       local fd = io.popen("amixer -c " .. "0" .. command)
-       local status = fd:read("*all")
-       fd:close()
-
-       local volume = string.match(status, "(%d?%d?%d)%%")
-       volume = string.format("% 3d", volume)
-       status = string.match(status, "%[(o[^%]]*)%]")
-       if string.find(status, "on", 1, true) then
-               volume = volume .. "%"
-       else
-               volume = volume .. "M"
-       end
-       return volume
+   local fd = io.popen("amixer -c " .. "0" .. command)
+   local status = fd:read("*all")
+   fd:close()
+   
+   local volume = string.match(status, "(%d?%d?%d)%%")
+   volume = string.format("% 3d", volume)
+   status = string.match(status, "%[(o[^%]]*)%]")
+   if string.find(status, "on", 1, true) then
+      volume = volume .. "%"
+   else
+      volume = volume .. "M"
+   end
+   return volume
 end
 
 local function mixercommand_up()
@@ -267,7 +267,7 @@ volumewidget:set_text(mixercommand(" sget Master"))
 -- Setup the timer
 volumetimer = timer { timeout = 1 }
 volumetimer:connect_signal("timeout",
-                           function() volumewidget:set_text(mixercommand(" sget Master")) end)
+                           function() volumewidget:set_text(" 🔊" .. mixercommand(" sget Master")) end)
 volumetimer:start()
 
 
@@ -456,7 +456,7 @@ menubar.utils.terminal = terminal -- Set the terminal for applications that requ
 -- {{{ Wibox
 -- Battery widget
 mybattery = wibox.widget.textbox() 
-vicious.register(mybattery, vicious.widgets.bat, "🔋$2% ", 1, "BAT0")
+vicious.register(mybattery, vicious.widgets.bat, " 🔋$2% ", 1, "BAT0")
 -- Create a textclock widget
 mytextclock = awful.widget.textclock()
 
@@ -539,7 +539,6 @@ for s = 1, screen.count() do
     -- Widgets that are aligned to the right
     local right_layout = wibox.layout.fixed.horizontal()
     if s == 1 then right_layout:add(wibox.widget.systray()) end
-    right_layout:add(alsawidget.bar)
     right_layout:add(volumewidget)
     right_layout:add(mybattery)
     right_layout:add(mytextclock)

@@ -1,9 +1,10 @@
-xterm*faceName: Terminus Regular
-xterm*faceSize: 18
+xterm*faceName: Consolas
+xterm*faceSize: 13
 XTerm*loginShell: true
 XTerm*locale: true
 XTerm*saveLines: 4096
 xterm*metaSendsEscape: true
+
 ! Black
 *color0:   #111111
 *color8:   #666666

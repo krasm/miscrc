@@ -40,8 +40,8 @@ end
 
 -- {{{ Variable definitions
 -- Themes define colours, icons, font and wallpapers.
-beautiful.init("/usr/share/awesome/themes/default/theme.lua")
-beautiful.wallpaper=os.getenv("HOME") .. "/" .. ".wallpaper.jpg"
+beautiful.init("/usr/share/awesome/themes/sky/theme.lua")
+--beautiful.wallpaper=os.getenv("HOME") .. "/" .. ".wallpaper.jpg"
 
 -- This is used later as the default terminal and editor to run.
 terminal = "xterm"
@@ -635,7 +635,8 @@ globalkeys = awful.util.table.join(
     end),
     awful.key({ }, "XF86AudioMute", function()
           mixercommand_toggle()
-    end)
+    end),
+    awful.key( {modkey, "Shift"}, "p", function() awful.util.spawn( "scrot" ) end )
 )
 
 clientkeys = awful.util.table.join(

@@ -1,5 +1,5 @@
 xterm*faceName: Consolas
-xterm*faceSize: 18
+xterm*faceSize: 13
 XTerm*loginShell: true
 XTerm*locale: true
 XTerm*saveLines: 4096

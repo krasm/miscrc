@@ -45,6 +45,13 @@ else
     git clone git://github.com/Lokaltog/vim-powerline.git $HOME/.vim/bundle/powerline
 fi
 
+if [ -d $HOME/.vim/bundle/ropevim ] ; then
+    (cd $HOME/.vim/bundle/ropevim && git pull)
+else
+    echo "clonning ropevim"
+    git clone https://github.com/python-rope/ropevim.git $HOME/.vim/bundle/ropevim
+fi
+
 if [ -d $HOME/.vim/bundle/python-mode ] ; then 
     (cd $HOME/.vim/bundle/python-mode && git pull)
 else

@@ -38,6 +38,23 @@ autohide_height = 2
 strut_policy = follow_size
 
 #---------------------------------------------
+# LAUNCHER
+#---------------------------------------------
+launcher_padding = 2 4 2
+launcher_background_id = 0
+launcher_icon_background_id = 1
+launcher_icon_size = 24
+launcher_icon_asb = 100 0 0
+launcher_icon_theme_override = 0
+startup_notifications = 1
+launcher_tooltip = 1
+launcher_item_app = /usr/share/applications/firefox.desktop
+launcher_item_app = /usr/share/applications/google-chrome.desktop
+launcher_item_app = /usr/share/applications/org.kde.kdeconnect.nonplasma.desktop
+launcher_item_app = /usr/share/applications/debian-uxterm.desktop
+launcher_apps_dir = ~/Desktop
+
+#---------------------------------------------
 # TASKBAR
 #---------------------------------------------
 taskbar_mode = multi_desktop

@@ -54,3 +54,11 @@ else
     echo "clonning python mode"
     git clone https://github.com/klen/python-mode.git $HOME/.vim/bundle/python-mode
 fi
+
+if [ -d $HOME/.vim/bundle/nerdtree ] ; then
+    (cd $HOME/.vim/bundle/nerdtree && git pull)
+else
+    echo "clonning nerd tree"
+    git clone https://github.com/scrooloose/nerdtree.git $HOME/.vim/bundle/nerdtree
+fi
+

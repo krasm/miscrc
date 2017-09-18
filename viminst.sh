@@ -62,3 +62,12 @@ else
     git clone https://github.com/scrooloose/nerdtree.git $HOME/.vim/bundle/nerdtree
 fi
 
+# vim -u NONE -c "helptags vim-fugitive/doc" -c q
+if [ ! -d $HOME/.vim/bundle/vim-fugitive ] ; then 
+    echo "getting fugitive"
+    git clone https://github.com/tpope/vim-fugitive.git $HOME/.vim/bundle/vim-fugitive
+else 
+    echo "updating vim fugitive"
+    (cd $HOME/.vim/bundle/vim-fugitive && git pull)
+fi
+

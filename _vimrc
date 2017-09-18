@@ -15,6 +15,10 @@ set expandtab
 set autoindent
 set number
 
+"backup files 
+set backupdir=./.backup,.,/tmp
+set directory=.,./.backup,/tmp
+
 "split navigations
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>

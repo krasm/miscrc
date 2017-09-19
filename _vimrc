@@ -32,6 +32,7 @@ nnoremap <space> za
 
 "indentation
 au BufNewFile,BufRead *.py set textwidth=79 fileformat=unix
+au FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
 
 let mapleader = ","
 " easier moving between tabs

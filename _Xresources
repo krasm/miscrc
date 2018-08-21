@@ -13,12 +13,6 @@ Xft.rgba:                   rgb
 Xft.hinting:                true
 Xft.hintstyle:              hintslight
 
-! Solarized color scheme for the X Window System
-!
-! http://ethanschoonover.com/solarized
-
-
-! Common
 
 #define S_yellow        #b58900
 #define S_orange        #cb4b16

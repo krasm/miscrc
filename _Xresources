@@ -1,3 +1,13 @@
+Xft.dpi:                    96
+Xft.antialias:              true
+Xft.rgba:                   rgb
+Xft.hinting:                true
+Xft.hintstyle:              hintslight
+
+!*font: xft:Monospace:pixelsize=18
+!*boldFont: xft:Monospace:pixelsize=18
+!*faceName: xft:Monospace:pixelsize=12
+!*boldFont: xft:Monospace:pixelsize=18
 *faceName: Consolas
 *faceSize: 10
 *loginShell: true

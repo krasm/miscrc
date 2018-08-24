@@ -318,7 +318,7 @@
 </keybind>
 <keybind key="W-x">
     <action name="Execute">
-        <command>code</command>
+        <command>code-insiders</command>
     </action>
 </keybind>
   <keybind key="W-S-e">

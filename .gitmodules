@@ -1,0 +1,3 @@
+[submodule "openbox-theme-collections"]
+	path = openbox-theme-collections
+	url = https://github.com/addy-dclxvi/openbox-theme-collections.git

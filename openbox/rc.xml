@@ -344,6 +344,7 @@
     </keybind>
     <keybind key="W-S-n">
       <action name="Execute">
+>>>>>>> b55f3bf5af54385e112715974bc6043f38fccad4
         <command>idea</command>
       </action>
     </keybind>

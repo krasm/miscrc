@@ -21,12 +21,12 @@ else
 fi
 
 echo "getting dependencies for you complete me"
-#sudo apt-get install -y build-essential cmake python-dev python3-dev golang nodejs npm
+sudo dnf install -y typescript
 
 if [ -d $HOME/.vim/bundle/YouCompleteMe ] ; then 
     echo "updating you complete me"
     (cd $HOME/.vim/bundle/YouCompleteMe && git pull)
-    (cd $HOME/.vim/bundle/YouCompleteMe && git submodule update --recursive && ./install.py --clang-completer --gocode-completer --tern-completer)
+    (cd $HOME/.vim/bundle/YouCompleteMe && git submodule update --recursive && ./install.py  --gocode-completer --java-completer)
 else 
     echo "cloning you complete me"
     git clone https://github.com/Valloric/YouCompleteMe.git  $HOME/.vim/bundle/YouCompleteMe
@@ -41,6 +41,7 @@ else
     git clone git://github.com/Lokaltog/vim-powerline.git $HOME/.vim/bundle/powerline
 fi
 
+sudo pip3 install ropevim
 if [ -d $HOME/.vim/bundle/ropevim ] ; then
     (cd $HOME/.vim/bundle/ropevim && git pull)
 else

@@ -22,6 +22,7 @@ fi
 
 echo "getting dependencies for you complete me"
 #sudo apt-get install -y build-essential cmake python-dev python3-dev golang nodejs npm
+sudo dnf install -y automake gcc gcc-c++ kernel-devel cmake node python-devel python3-devel
 
 if [ -d $HOME/.vim/bundle/YouCompleteMe ] ; then 
     echo "updating you complete me"
@@ -32,7 +33,7 @@ else
     git clone https://github.com/Valloric/YouCompleteMe.git  $HOME/.vim/bundle/YouCompleteMe
     (cd $HOME/.vim/bundle/YouCompleteMe && git submodule update --init --recursive && ./install.py --clang-completer --gocode-completer --tern-completer)
 fi
-
+(cd $HOME/.vim/bundle/YouCompleteMe && ./install.py --js-completer --java-completer --go-completer)
 
 if [ -d $HOME/.vim/bundle/powerline ] ; then 
     (cd $HOME/.vim/bundle/powerline && git pull)

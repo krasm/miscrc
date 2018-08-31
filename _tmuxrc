@@ -4,7 +4,7 @@ set -g prefix C-Space
 bind Space send-prefix
 
 # Use vi keys
-set -gw mode-keys vi
+# set -gw mode-keys vi
 
 # Update window title
 set -g set-titles on
@@ -32,6 +32,11 @@ bind C-c command-prompt -p command: "new-window -n '%1' '%1'"
 # http://unix.stackexchange.com/questions/14300/tmux-move-window-to-pane
 bind-key j command-prompt -p "join pane from window:"  "join-pane -s '%%'"
 bind-key s command-prompt -p "send pane to window:"  "join-pane -t '%%'"
+
+bind -n M-Left select-pane -L
+bind -n M-Right select-pane -R
+bind -n M-Up select-pane -U
+bind -n M-Down select-pane -D
 
 # Message bar
 set -g message-attr bright

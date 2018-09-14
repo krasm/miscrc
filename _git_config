@@ -1,2 +1,6 @@
 [alias]
     st = status
+    co = checkout
+[user]
+	name = msk
+	email = mkrasowski@gmail.com

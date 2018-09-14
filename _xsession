@@ -1,4 +1,5 @@
 exec setxkbmap -model pc105 -layout us,pl &
 exec xscreensaver -no-splash & 
 exec xrdb -merge ~/.Xresources &
-awesome
+tint2 &
+openbox

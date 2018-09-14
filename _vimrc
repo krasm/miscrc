@@ -39,8 +39,6 @@ let mapleader = ","
 map <Leader>n <esc>:tabprevious<CR>
 map <Leader>m <esc>:tabnext<CR>
 
-colorscheme darkblue
-
 " map sort function to a key
 vnoremap <Leader>s :sort<CR>
 

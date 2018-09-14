@@ -22,7 +22,7 @@ fi
 
 echo "getting dependencies for you complete me"
 #sudo apt-get install -y build-essential cmake python-dev python3-dev golang nodejs npm
-sudo dnf install -y automake gcc gcc-c++ kernel-devel cmake node python-devel python3-devel typescript
+sudo yum install -y automake gcc gcc-c++ kernel-devel cmake node python-devel python3-devel typescript
 
 if [ -d $HOME/.vim/bundle/YouCompleteMe ] ; then 
     echo "updating you complete me"

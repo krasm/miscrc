@@ -8,6 +8,7 @@ Xft.rgba:                   rgb
 Xft.hinting:                true
 Xft.hintstyle:              hintslight
 
+XTerm.font: xft:LiberationMonospace:pixelsize=18
 !-------------------------------------------------------------------------------
 ! URxvt settings
 ! Colours lifted from Solarized (http://ethanschoonover.com/solarized)
@@ -28,7 +29,6 @@ URxvt.lineSpace:            0
 
 ! Fonts
 URxvt.allow_bold:           false
-/* URxvt.font:                 -*-terminus-medium-r-normal-*-12-120-72-72-c-60-iso8859-1 */
 URxvt*font: xft:Monospace:pixelsize=18
 URxvt*boldFont: xft:Monospace:pixelsize=18
 
@@ -99,11 +99,11 @@ URxvt.pointerBlank:         true
 ! URxvt*background:            S_base03
 
 *background:              S_base03
-*foreground:              S_base0
+*foreground:              S_base02
 *fading:                  40
 *fadeColor:               S_base03
-*cursorColor:             S_base1
-*pointerColorBackground:  S_base01
+*cursorColor:             S_base01
+*pointerColorBackground:  S_base02
 *pointerColorForeground:  S_base1
 
 *color0:                  S_base02

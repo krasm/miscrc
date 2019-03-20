@@ -21,8 +21,9 @@ else
 fi
 
 echo "getting dependencies for you complete me"
-#sudo apt-get install -y build-essential cmake python-dev python3-dev golang nodejs npm
-sudo yum install -y automake gcc gcc-c++ kernel-devel cmake node python-devel python3-devel typescript
+sudo apt-get install -y build-essential cmake python-dev python3-dev golang  python-pip python3-pip python-requests python3-requests
+
+#sudo yum install -y automake gcc gcc-c++ kernel-devel cmake node python-devel python3-devel typescript
 
 if [ -d $HOME/.vim/bundle/YouCompleteMe ] ; then 
     echo "updating you complete me"
@@ -42,6 +43,9 @@ else
     git clone git://github.com/Lokaltog/vim-powerline.git $HOME/.vim/bundle/powerline
 fi
 
+#sudo yum install -y python2-rope python34-rope 
+sudo apt install -y python-rope  
+sudo pip2 install ropevim
 sudo pip3 install ropevim
 if [ -d $HOME/.vim/bundle/ropevim ] ; then
     (cd $HOME/.vim/bundle/ropevim && git pull)

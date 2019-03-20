@@ -1,8 +1,8 @@
 # .bashrc
 
 # Source global definitions
-if [ -f /etc/bashrc ]; then
-	. /etc/bashrc
+if [ -f $HOME/.bashrc ]; then
+	. $HOME/.bashrc
 fi
 
 PATH=$HOME/.local/bin:$HOME/bin:$PATH
@@ -13,14 +13,30 @@ export GROFF_FONT_PATH=$HOME/.fonts
 
 export CASSANDRA_HOME=/home/msk/opt/apache-cassandra-3.11.3
 
-export PATH=$HOME/opt/bin:$CASSANDRA_HOME/bin:.:$PATH
+export PATH=$HOME/opt/bin:$CASSANDRA_HOME/bin:.:$PATH:/home/krasm/opt/texlive/2018/bin/x86_64-linux
 
-export EMACS_CONF_DIR=$HOME/priv/emacsrc
+export EMACS_CONF_DIR=$HOME/prj/emacsrc
+
+export LIBCRYPTO_ROOT=/home/krasm/opt/libcrypto
+export LD_LIBRARY_PATH=.:/usr/local/lib:$LIBCRYPTO_ROOT/lib:$LD_LIBRARY_PATH
+
+export MANPATH=$HOME/opt/man:$MANPATH:/home/krasm/opt/texlive/2018/texmf-dist/doc/man
+export INFOPATH=/home/krasm/opt/texlive/2018/texmf-dist/doc/info:.:$INFOPATH
+
+export CLASSPATH=.:$HOME/opt/junit-platform-console-standalone-1.4.0-20180916.123844-34.jar:$CLASSPATH
+
+. $HOME/private/keys/aws_backup_access.key
+
+export GOPATH=$HOME/opt/gopath
+export PATH=$GOPATH:$HOME/opt/go/bin:$PATH
+
+export EDITOR=nvim
 
 # Uncomment the following line if you don't like systemctl's auto-paging feature:
 # export SYSTEMD_PAGER=
 
 # User specific aliases and functions
+alias bat='upower -i /org/freedesktop/UPower/devices/battery_BAT0| grep -E "state|to\ full|percentage|to\ empty"'
 
 # get current branch in git repo
 function parse_git_branch() {

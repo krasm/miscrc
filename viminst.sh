@@ -1,5 +1,8 @@
 #!/bin/sh
 
+sudo apt update 
+sudo apt upgrade 
+
 if [ ! -f $HOME/.vim/autoload ] ; then 
     mkdir -p $HOME/.vim/autoload 
 fi
@@ -21,8 +24,8 @@ else
 fi
 
 echo "getting dependencies for you complete me"
-#sudo apt-get install -y build-essential cmake python-dev python3-dev golang nodejs npm
-sudo yum install -y automake gcc gcc-c++ kernel-devel cmake node python-devel python3-devel typescript
+sudo apt install -y build-essential cmake python-dev python3-dev golang nodejs nodejs-dev npm 
+#sudo yum install -y automake gcc gcc-c++ kernel-devel cmake node python-devel python3-devel typescript
 
 if [ -d $HOME/.vim/bundle/YouCompleteMe ] ; then 
     echo "updating you complete me"

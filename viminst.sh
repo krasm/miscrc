@@ -45,6 +45,9 @@ else
     git clone git://github.com/Lokaltog/vim-powerline.git $HOME/.vim/bundle/powerline
 fi
 
+#sudo yum install -y python2-rope python34-rope 
+sudo apt install -y python-rope  
+sudo pip2 install ropevim
 sudo pip3 install ropevim
 if [ -d $HOME/.vim/bundle/ropevim ] ; then
     (cd $HOME/.vim/bundle/ropevim && git pull)

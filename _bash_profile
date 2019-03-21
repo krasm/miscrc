@@ -1,8 +1,8 @@
 # .bashrc
 
 # Source global definitions
-if [ -f /etc/bashrc ]; then
-	. /etc/bashrc
+if [ -f $HOME/.bashrc ]; then
+	. $HOME/.bashrc
 fi
 
 PATH=$HOME/.local/bin:$HOME/bin:$PATH
@@ -15,7 +15,22 @@ export CASSANDRA_HOME=$HOME/opt/apache-cassandra-3.11.3
 
 export PATH=$HOME/bin:$HOME/opt/bin:$CASSANDRA_HOME/bin:.:$PATH
 
-export EMACS_CONF_DIR=$HOME/priv/emacsrc
+export EMACS_CONF_DIR=$HOME/prj/emacsrc
+
+export LIBCRYPTO_ROOT=/home/krasm/opt/libcrypto
+export LD_LIBRARY_PATH=.:/usr/local/lib:$LIBCRYPTO_ROOT/lib:$LD_LIBRARY_PATH
+
+export MANPATH=$HOME/opt/man:$MANPATH:/home/krasm/opt/texlive/2018/texmf-dist/doc/man
+export INFOPATH=/home/krasm/opt/texlive/2018/texmf-dist/doc/info:.:$INFOPATH
+
+export CLASSPATH=.:$HOME/opt/junit-platform-console-standalone-1.4.0-20180916.123844-34.jar:$CLASSPATH
+
+. $HOME/private/keys/aws_backup_access.key
+
+export GOPATH=$HOME/opt/gopath
+export PATH=$GOPATH:$HOME/opt/go/bin:$PATH
+
+export EDITOR=nvim
 
 export GEMFIRE=$HOME/opt/pivotal-gemfire-9.5.1
 export PATH=$GEMFIRE/bin:$PATH
@@ -27,6 +42,7 @@ export CLASSPATH=.:$HOME/opt/junit-platform-console-standalone-1.3.1.jar
 # export SYSTEMD_PAGER=
 
 # User specific aliases and functions
+alias bat='upower -i /org/freedesktop/UPower/devices/battery_BAT0| grep -E "state|to\ full|percentage|to\ empty"'
 
 # get current branch in git repo
 function parse_git_branch() {

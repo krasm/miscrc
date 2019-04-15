@@ -1,7 +1,8 @@
-XTerm*renderFont: true
-XTerm*faceName: Monaco
-XTerm*faceSize: 12
+!XTerm*renderFont: true
+!XTerm*faceName: Monaco
+!XTerm*faceSize: 12
 
+urxvt.font:  xft:Inconsolata:size=10
 
 !-------------------------------------------------------------------------------
 ! Xft settings

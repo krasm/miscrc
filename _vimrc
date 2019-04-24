@@ -42,6 +42,9 @@ map <Leader>m <esc>:tabnext<CR>
 " map sort function to a key
 vnoremap <Leader>s :sort<CR>
 
+set background=dark
+colorscheme solarized
+
 set laststatus=2   " Always show the statusline
 set encoding=utf-8 " Necessary to show Unicode glyphs
 

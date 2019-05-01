@@ -5,7 +5,7 @@ UXTerm*faceSize: 12
 UXTerm*metaSendsEscape: true
 UXTerm*eightBitInput: false
 
-
+urxvt.font:  xft:Inconsolata:size=10
 
 !-------------------------------------------------------------------------------
 ! Xft settings
@@ -81,4 +81,3 @@ Xft.hintstyle:              hintslight
 *color13:                 S_violet
 *color14:                 S_base1
 *color15:                 S_base3
-

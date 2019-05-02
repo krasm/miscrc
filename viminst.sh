@@ -79,3 +79,11 @@ else
     (cd $HOME/.vim/bundle/vim-fugitive && git pull)
 fi
 
+if [ ! -d $HOME/.vim/bundle/vim-colors-solarized ] ; then 
+    echo "getting solarized"
+    git clone git://github.com/altercation/vim-colors-solarized.git $HOME/.vim/bundle/vim-colors-solarized
+else
+    echo "updating solarized"
+    (cd $HOME/.vim/bundle/vim-colors-solarized && git pull)
+fi
+

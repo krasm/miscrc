@@ -18,7 +18,7 @@ export PATH=$HOME/bin:$HOME/opt/bin:$CASSANDRA_HOME/bin:.:$PATH
 export EMACS_CONF_DIR=$HOME/prj/emacsrc
 
 export LIBCRYPTO_ROOT=/home/krasm/opt/libcrypto
-export LD_LIBRARY_PATH=.:/usr/local/lib:$LIBCRYPTO_ROOT/lib:$LD_LIBRARY_PATH
+export LD_LIBRARY_PATH=.:$HOME/opt/lib:/usr/local/lib:$LIBCRYPTO_ROOT/lib:$LD_LIBRARY_PATH
 
 export MANPATH=$HOME/opt/man:$MANPATH:/home/krasm/opt/texlive/2018/texmf-dist/doc/man
 export INFOPATH=/home/krasm/opt/texlive/2018/texmf-dist/doc/info:.:$INFOPATH
@@ -100,3 +100,5 @@ PATH=$PATH:$HOME/.local/bin:$HOME/bin
 export PATH
 
 # get current branch in git repo
+
+export PATH="$HOME/.cargo/bin:$PATH"

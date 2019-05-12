@@ -10,7 +10,7 @@
     <action name="Execute"><execute>uxterm</execute></action>
   </item>
   <item label="Web browser">
-    <action name="Execute"><execute>firefox</execute></action>
+    <action name="Execute"><execute>google-chrome</execute></action>
   </item>
   <!-- This requires the presence of the 'menu' package to work -->
   <menu id="/Debian" />

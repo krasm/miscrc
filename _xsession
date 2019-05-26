@@ -4,3 +4,4 @@ exec xrdb -merge ~/.Xresources &
 exec synclient MaxTapTime=0 &
 #exec skypeforlinux &
 awesome >> ~/.cache/awesome/stdout 2>> ~/.cache/awesome/stderr
+#gnome-session

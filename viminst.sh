@@ -25,18 +25,16 @@ fi
 
 echo "getting dependencies for you complete me"
 sudo apt install -y build-essential cmake python-dev python3-dev golang nodejs nodejs-dev npm 
-#sudo yum install -y automake gcc gcc-c++ kernel-devel cmake node python-devel python3-devel typescript
 
 if [ -d $HOME/.vim/bundle/YouCompleteMe ] ; then 
     echo "updating you complete me"
     (cd $HOME/.vim/bundle/YouCompleteMe && git pull)
-    (cd $HOME/.vim/bundle/YouCompleteMe && git submodule update --recursive && ./install.py  --gocode-completer --java-completer)
+    (cd $HOME/.vim/bundle/YouCompleteMe && git submodule update --recursive && ./install.py  --gocode-completer --java-completer --tern-completer --clang-completer --js-completer)
 else 
     echo "cloning you complete me"
     git clone https://github.com/Valloric/YouCompleteMe.git  $HOME/.vim/bundle/YouCompleteMe
-    (cd $HOME/.vim/bundle/YouCompleteMe && git submodule update --init --recursive && ./install.py --clang-completer --gocode-completer --tern-completer)
+    (cd $HOME/.vim/bundle/YouCompleteMe && git submodule update --init --recursive && ./install.py --clang-completer --java-completer --tern-completer --gocode-completer --js-completer)
 fi
-(cd $HOME/.vim/bundle/YouCompleteMe && ./install.py --js-completer --java-completer --go-completer)
 
 if [ -d $HOME/.vim/bundle/powerline ] ; then 
     (cd $HOME/.vim/bundle/powerline && git pull)
@@ -57,10 +55,10 @@ else
 fi
 
 if [ -d $HOME/.vim/bundle/python-mode ] ; then 
-    (cd $HOME/.vim/bundle/python-mode && git pull)
+    (cd $HOME/.vim/bundle/python-mode && git pull && git submodule update --init --recursive)
 else
     echo "clonning python mode"
-    git clone https://github.com/klen/python-mode.git $HOME/.vim/bundle/python-mode
+    git clone --recurse-submodule https://github.com/klen/python-mode.git $HOME/.vim/bundle/python-mode
 fi
 
 if [ -d $HOME/.vim/bundle/nerdtree ] ; then

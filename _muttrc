@@ -16,7 +16,9 @@ mailboxes +gmail/cding\ problem \
           +gmail/\[Gmail\]/Sent\ Mail \
           +stanley/sib.stanleybet \
           +stanley/sib.sent \
-          +joulica/INBOX
+          +joulica/INBOX \
+	  +joulica/Sent\ Items \
+	  +krasm/INBOX
 
 
 set sendmail="~/opt/bin/msmtp-enqueue.sh"

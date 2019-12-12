@@ -1,6 +1,6 @@
 ./configure --with-xml2 --with-zlib --without-x --without-sound --without-xpm \
   --without-jpeg --without-tiff --without-gif --without-png --without-rsvg \
-    --without-imagemagick --without-xft --without-libotf --without-m17n-flt \
+    --without-imagemagick --with-xft --with-libotf --without-m17n-flt \
       --without-xaw3d --without-toolkit-scroll-bars --without-gpm --without-dbus \
         --without-gconf --without-gsettings --without-makeinfo \
-          --without-compress-install --prefix=$HOME/opt/emacs
+          --without-compress-install --with-x --prefix=$HOME/opt/emacs

@@ -1,6 +1,17 @@
-UXTerm*renderFont: true
-UXTerm*faceName: Monaco
-UXTerm*faceSize: 12
+XTerm*renderFont: true
+XTerm*faceName: Inconsolata
+XTerm*faceSize: 16
+
+! VT Font Menu: Unreadable
+xterm*faceSize1: 10
+! VT font menu: Tiny
+xterm*faceSize2: 12
+! VT font menu: Medium
+xterm*faceSize3: 16
+! VT font menu: Large
+xterm*faceSize4: 20
+! VT font menu: Huge
+xterm*faceSize5: 24
 
 UXTerm*metaSendsEscape: true
 UXTerm*eightBitInput: false
@@ -81,3 +92,23 @@ Xft.hintstyle:              hintslight
 *color13:                 S_violet
 *color14:                 S_base1
 *color15:                 S_base3
+
+xterm*VT100.Translations: #override \
+    Shift <KeyPress> Insert: insert-selection(CLIPBOARD) \n\
+    Ctrl Shift <Key>V:    insert-selection(CLIPBOARD) \n\
+    Ctrl Shift <Key>C:    copy-selection(CLIPBOARD) \n\
+    Ctrl <Btn1Up>: exec-formatted("xdg-open '%t'", PRIMARY)
+
+! Only select text
+xterm*highlightSelection: true
+! Remove trailing spaces
+xterm*trimSelection: true
+
+! Lines of output that you can scroll back over
+xterm*saveLines: 4096
+! Turn the scrollbar on, and put it on the right
+xterm*scrollBar: true
+xterm*rightScrollBar: true
+
+! Do not scroll when there is new input e.g. tail -f /var/syslog
+xterm*scrollTtyOutput: false

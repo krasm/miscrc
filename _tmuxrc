@@ -1,6 +1,7 @@
 # Set prefix to Ctrl-Space
 unbind C-b
-set -g prefix C-Space
+#set -g prefix C-Space
+set -g prefix `
 bind Space send-prefix
 
 # Use vi keys
@@ -35,8 +36,8 @@ bind-key s command-prompt -p "send pane to window:"  "join-pane -t '%%'"
 
 bind -n M-Left select-pane -L
 bind -n M-Right select-pane -R
-bind -n M-Up select-pane -U
-bind -n M-Down select-pane -D
+#bind -n M-Up select-pane -U
+#bind -n M-Down select-pane -D
 ######################
 ### DESIGN CHANGES ###
 ######################
@@ -89,4 +90,3 @@ setw -g window-status-bell-bg colour1
 set -g message-attr bold
 set -g message-fg colour1
 set -g message-bg colour153
-

@@ -1,7 +1,31 @@
 #!/bin/sh
 
+VIM_CURRENT_TAG=v8.2.1955
+VIM_DEST_DIR=$HOME/opt/vim$VIM_CURRENT_TAG
+NEOVIM_DEST_DIR=$HOME/opt/neovim
+
 sudo apt update 
 sudo apt upgrade 
+sudo apt install -y curl git libncurses-dev ncurses-doc ninja-build gettext libtool libtool-bin autoconf automake cmake g++ pkg-config unzip
+
+echo "Building vim"
+git clone --depth 1 --branch $VIM_CURRENT_TAG https://github.com/vim/vim.git __vimbuild
+(cd __vimbuild && ./configure --prefix=$VIM_DEST_DIR --enable-cscope --enable-luainterp=yes --enable-python3interp=yes --enable-multibyte && make && make install && rm -r __vimbuild)
+
+echo "Building neovim" 
+git clone https://github.com/neovim/neovim.git __neovimbuild
+(cd __neovimbuild && git checkout stable && make CMAKE_INSTALL_PREFIX=$NEOVIM_DEST_DIR && make install )
+
+mkdir -p $HOME/bin
+for f in `ls $VIM_DEST_DIR/bin` ; do 
+    ln -s $VIM_DEST_DIR/bin/$f $HOME/bin
+done
+for f in `ls $NEOVIM_DEST_DIR/bin` ; do 
+    ln -s $NEOVIM_DEST_DIR/bin/$f $HOME/bin
+done
+
+mkdir -p $HOME/.config/nvim/
+ln -s $PWD/nvim/init.vim $HOME/.config/nvim/init.vim
 
 if [ ! -f $HOME/.vim/autoload ] ; then 
     mkdir -p $HOME/.vim/autoload 
@@ -24,7 +48,7 @@ else
 fi
 
 echo "getting dependencies for you complete me"
-sudo apt install -y build-essential cmake python-dev python3-dev golang nodejs nodejs-dev npm 
+sudo apt install -y build-essential cmake python3-dev golang nodejs libnode-dev npm 
 
 if [ -d $HOME/.vim/bundle/YouCompleteMe ] ; then 
     echo "updating you complete me"
@@ -44,9 +68,9 @@ else
 fi
 
 #sudo yum install -y python2-rope python34-rope 
-sudo apt install -y python-rope  
-sudo pip2 install ropevim
-sudo pip3 install ropevim
+sudo apt install -y python-pip python-rope  
+sudo pip install ropevim
+
 if [ -d $HOME/.vim/bundle/ropevim ] ; then
     (cd $HOME/.vim/bundle/ropevim && git pull)
 else

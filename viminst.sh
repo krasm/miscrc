@@ -24,7 +24,7 @@ else
 fi
 
 echo "getting dependencies for you complete me"
-sudo apt install -y build-essential cmake python-dev python3-dev golang nodejs nodejs-dev npm 
+sudo apt install -y build-essential cmake python-dev python3-dev golang nodejs libnode-dev npm 
 
 if [ -d $HOME/.vim/bundle/YouCompleteMe ] ; then 
     echo "updating you complete me"

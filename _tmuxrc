@@ -28,6 +28,11 @@ bind C-d detach			# the same as d so you don't have to depress Ctrl
 bind r source-file ~/.tmux.conf \; display-message "Configuration reloaded."
 bind C-Space last-window
 bind C-c command-prompt -p command: "new-window -n '%1' '%1'"
+# split panes using | and -
+bind | split-window -h
+bind - split-window -v
+unbind '"'
+unbind %
 
 # Pane movement
 # http://unix.stackexchange.com/questions/14300/tmux-move-window-to-pane

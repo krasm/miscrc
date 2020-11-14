@@ -1,11 +1,11 @@
-# .bashrc
+# -*- mode: sh -*-
 
 # Source global definitions
 if [ -f $HOME/.bashrc ]; then
 	. $HOME/.bashrc
 fi
 
-PATH=$HOME/.local/bin:$HOME/opt/python3/bin:$HOME/opt/emacs/bin:$HOME/bin:$PATH
+PATH=.:$HOME/.local/bin:$HOME/bin:$HOME/opt/bin:$PATH
 export PATH
 export  GPG_TTY=$(tty)
 
@@ -13,17 +13,19 @@ export GROFF_ENCODING=utf8
 export GROFF_FONT_PATH=$HOME/.fonts
 export EMACS_CONF_DIR=$HOME/prj/emacsrc
 
-export MANPATH=$HOME/opt/man:$MANPATH:/home/krasm/opt/texlive/2018/texmf-dist/doc/man:/home/krasm/opt/sc-im/share/man
-export INFOPATH=/home/krasm/opt/texlive/2018/texmf-dist/doc/info:.:$INFOPATH
+export MANPATH=$HOME/opt/man:.:$MANPATH:
+
 export CLASSPATH=.:$HOME/opt/junit-platform-console-standalone-1.4.0-20180916.123844-34.jar:$CLASSPATH
 
-. $HOME/private/keys/aws_backup_access.key
+if [ -f $HOME/private/keys/aws_backup_access.key ]; then
+    . $HOME/private/keys/aws_backup_access.key
+fi
 
 export GOPATH=$HOME/opt/gopath
 export PATH=$GOPATH:$HOME/opt/go/bin:$PATH
 
 export XMLLINT_INDENT="    "
-export EDITOR=nvim
+export EDITOR=emacs
 
 export MPD_HOST=127.0.0.1
 export MPD_PORT=6617
@@ -82,11 +84,7 @@ function parse_git_dirty {
 
 export PS1="\[\e[36m\]\W\[\e[m\]\[\e[32m\]\`parse_git_branch\`\[\e[m\] $ "
 
-export PATH="$HOME/.cargo/bin:$PATH"
-
-#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
-export SDKMAN_DIR="$HOME/.sdkman"
-[[ -s "$SDKMAN_DIR/bin/sdkman-init.sh" ]] && source "$SDKMAN_DIR/bin/sdkman-init.sh"
-PATH=$PATH:$HOME/.local/bin:$HOME/bin
+PATH=/home/krasm/opt/python3/bin:$PATH
+LD_LIBRARY_PATH=.:/home/krasm/opt/python3/lib:$LD_LIBRARY_PATH
 export PATH
-
+export LD_LIBRARY_PATH

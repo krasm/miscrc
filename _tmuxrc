@@ -62,13 +62,14 @@ set -g pane-active-border-bg colour1
 set -g pane-active-border-fg colour9
 
 # statusbar
+set -g status-interval 1
 set -g status-position bottom
 set -g status-justify left
 set -g status-bg colour2
 set -g status-fg colour137
 set -g status-attr dim
 set -g status-left ''
-set -g status-right '#[fg=colour233,bg=colour196,bold] %d/%m #[fg=colour233,bg=colour196,bold] %H:%M:%S '
+set -g status-right '#[fg=colour233,bg=colour196,bold] #(/opt/vc/bin/vcgencmd measure_temp | sed -e "s/temp=\(.\+\)/\1/") #[fg=colour233,bg=colour196,bold] %d/%m #[fg=colour233,bg=colour196,bold] %H:%M:%S '
 set -g status-right-length 50
 set -g status-left-length 20
 

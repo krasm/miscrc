@@ -3,7 +3,7 @@
 
 PYTHON_VER=3.9.0
 PYTHON_SRC=Python-$PYTHON_VER
-PYTHON_DIST=/home/krasm/opt/python3
+PYTHON_DIST=$HOME/opt/python3
 
 sudo apt update && sudo apt upgrade
 #sudo apt install -y zlib1g-dev libbz2-dev libssl-dev ncurses-dev libsqlite3-dev libreadline-dev tk-dev libgdbm-dev libdb4-dev libpcap-dev libxz-dev libexpat-dev

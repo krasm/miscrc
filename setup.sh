@@ -1,5 +1,5 @@
 #!/bin/sh
--*- mode: sh -*-
+# -*- mode: sh -*-
 
 link() {
     SRC=$PWD/$1

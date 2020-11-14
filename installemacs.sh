@@ -51,4 +51,5 @@ if [ -z $HOME/bin/emacs ]; then
     rm $HOME/bin/emacs
 fi
 ln -s $HOME/opt/emacs-$EMACS_VERSION/bin/emacs $HOME/bin/emacs
+ln -s $HOME/opt/emacs-$EMACS_VERSION/bin/emacsclient $HOME/bin/emacsclient
 ln -s $HOME/prj/emacsrc/init.el $HOME/.emacs.d/init.el

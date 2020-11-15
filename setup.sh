@@ -1,37 +1,28 @@
-#!/bin/bash 
+#!/bin/sh
+# -*- mode: sh -*-
 
-ITEM=`pwd`"/_Xresources"
-if [ -f $ITEM ]; then 
-	echo "setting $ITEM"\
-	ln -s $ITEM $HOME/.Xresources
-fi
+link() {
+    SRC=$PWD/$1
+    DST=$HOME/$2
 
-ITEM=`pwd`"/_bash_profile" 
-if [ -f $ITEM ]; then
-	echo "setting $ITEM"
-	ln -s $ITEM $HOME/.profile
-fi
+    if [ -z $DST ]; then
+	rm $DST
+    fi
 
-ITEM=`pwd`"/_tmuxrc"
-if [ -f $ITEM ]; then 
-	echo "setting $ITEM"
-	ln -s $ITEM $HOME/.tmux.conf
-fi
+    if [ -f $DST ]; then
+	echo "$DST exists. skipping"
+    elif [ -f $SRC ]; then
+	echo "linking $SRC to $DST"
+	ln -s $SRC $DST
+    fi
+}
 
-ITEM=`pwd`"/_vimrc" 
-if [ -f $ITEM ]; then
-	echo "installing $ITEM"
-	ln -s $ITEM $HOME/.vimrc
-fi
+link "_Xresources" ".Xresources"
+link "_xsession" ".xsessionrc"
+link "_bash_profile" ".profile"
+link "_tmuxrc" ".local/config/.tmux.conf"
+link "_vimrc" ".vimrc"
 
-ITEM=`pwd`"/_xsession"
-if [ -f $ITEM ]; then
-	echo "installing $ITEM"
-	ln -s $ITEM $HOME/.xsessionrc
-fi
-
-if [ ! -d $HOME"/.config/openbox" ]; then 
-	mkdir -p $HOME"/.config/openbox"
-fi
-
-
+/bin/sh -f installvim.sh
+/bin/sh -f installemacs.sh
+/bin/sh -f installpython.sh

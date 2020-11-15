@@ -9,20 +9,18 @@ set postponed="+.Drafts"
 set spoolfile="~/mail/gmail/INBOX"
 set mbox_type=Maildir
 
-mailboxes +gmail/cding\ problem \
+mailboxes +gmail/INBOX \
+          +krasm/INBOX
+          +oranmorebeavers/INBOX \
+          +gmail/cding\ problem \
           +gmail/aikido \
           +gmail/cryptogram \
           +gmail/tech \
           +gmail/\[Gmail\]/Sent\ Mail \
-          +stanley/sib.stanleybet \
-          +stanley/sib.sent \
-          +joulica/INBOX \
-          +joulica/Sent\ Items \
-          +oranmorebeavers/INBOX \
-          +krasm/INBOX
 
 
 set sendmail="~/opt/bin/msmtp-enqueue.sh"
+
 set use_from=yes
 set envelope_from=yes
 
@@ -43,7 +41,7 @@ unignore from: to: cc: date: subject:   # show only these
 unhdr_order *                           # some distros order things by default
 hdr_order from: to: cc: date: subject:  # and in this order
 
-
+bind index g noop
 macro index gi "<change-folder>=INBOX<enter>" "Go to inbox"
 macro index ga "<change-folder>=[Google Mail]/All Mail<enter>" "Go to all mail"
 macro index gs "<change-folder>=[Google Mail]/Sent Mail<enter>" "Go to Sent Mail"
@@ -52,6 +50,7 @@ macro index gd "<change-folder>=[Google Mail]/Drafts<enter>" "Go to drafts"
 macro index t "<pipe-message>mutt2task<enter> <save-message>+TODO<enter>"
 
 auto_view text/html
+alternative_order text/plain text/enriched text/html
 
 set sidebar_visible=yes
 # Move the highlight to the previous mailbox

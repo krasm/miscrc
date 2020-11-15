@@ -1,47 +1,34 @@
-# .bashrc
+# -*- mode: sh -*-
 
 # Source global definitions
 if [ -f $HOME/.bashrc ]; then
 	. $HOME/.bashrc
 fi
 
-PATH=$HOME/.local/bin:$HOME/opt/python3/bin:$HOME/opt/emacs/bin:$HOME/bin:$PATH
+PATH=.:$HOME/.local/bin:$HOME/bin:$HOME/opt/bin:$PATH
 export PATH
 export GPG_TTY=$(tty)
 
 export GROFF_ENCODING=utf8
 export GROFF_FONT_PATH=$HOME/.fonts
-
-export CASSANDRA_HOME=$HOME/opt/apache-cassandra-3.11.3
-
-export PATH=$HOME/bin:$HOME/opt/bin:$HOME/opt/emacs/bin:$CASSANDRA_HOME/bin:.:/home/krasm/opt/texlive/bin/x86_64-linux:$PATH
-
 export EMACS_CONF_DIR=$HOME/prj/emacsrc
 
-export LIBCRYPTO_ROOT=/home/krasm/opt/libcrypto
-export LD_LIBRARY_PATH=.:$HOME/opt/lib:/usr/local/lib:$LIBCRYPTO_ROOT/lib:$LD_LIBRARY_PATH
-
-export MANPATH=$HOME/opt/man:$MANPATH:/home/krasm/opt/sc-im/share/man:/home/krasm/opt/texlive/texmf-dist/doc/man
-export INFOPATH=/home/krasm/opt/texlive/texmf-dist/doc/info:.:$INFOPATH
+export MANPATH=$HOME/opt/man:.:$MANPATH:
 
 export CLASSPATH=.:$HOME/opt/junit-platform-console-standalone-1.6.0.jar:$HOME/opt/junit-jupiter-5.6.0.jar:$CLASSPATH
 
-#. $HOME/private/keys/aws_backup_access.key
+if [ -f $HOME/private/keys/aws_backup_access.key ]; then
+    . $HOME/private/keys/aws_backup_access.key
+fi
 
 export GOPATH=$HOME/opt/gopath
 export PATH=$GOPATH:$HOME/opt/go/bin:$PATH
 
 export XMLLINT_INDENT="    "
-export EDITOR=$HOME/opt/emacs/bin/emacsclient
-
-export GEMFIRE=$HOME/opt/pivotal-gemfire-9.5.1
-export PATH=$GEMFIRE/bin:$PATH
+export EDITOR=emacsclient
 
 export MPD_HOST=127.0.0.1
 export MPD_PORT=6617
-
-# Uncomment the following line if you don't like systemctl's auto-paging feature:
-# export SYSTEMD_PAGER=
 
 # User specific aliases and functions
 alias bat='upower -i /org/freedesktop/UPower/devices/battery_BAT0| grep -E "state|to\ full|percentage|to\ empty"'
@@ -49,7 +36,7 @@ alias vi=nvim
 alias em='emacsclient -a emacs -t '
 
 # get current branch in git repo
-function parse_git_branch() {
+parse_git_branch() {
   BRANCH=`git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/'`
   if [ ! "${BRANCH}" == "" ]
   then
@@ -61,7 +48,7 @@ function parse_git_branch() {
 }
 
 # get current status of git repo
-function parse_git_dirty {
+parse_git_dirty() {
   status=`git status 2>&1 | tee`
   dirty=`echo -n "${status}" 2> /dev/null | grep "modified:" &> /dev/null; echo "$?"`
   untracked=`echo -n "${status}" 2> /dev/null | grep "Untracked files" &> /dev/null; echo "$?"`
@@ -97,12 +84,7 @@ function parse_git_dirty {
 
 export PS1="\[\e[36m\]\W\[\e[m\]\[\e[32m\]\`parse_git_branch\`\[\e[m\] $ "
 
-#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
-export SDKMAN_DIR="$HOME/.sdkman"
-[[ -s "$SDKMAN_DIR/bin/sdkman-init.sh" ]] && source "$SDKMAN_DIR/bin/sdkman-init.sh"
-PATH=$PATH:$HOME/.local/bin:$HOME/bin
+PATH=/home/krasm/opt/python3/bin:$PATH
+LD_LIBRARY_PATH=.:/home/krasm/opt/python3/lib:$LD_LIBRARY_PATH
 export PATH
-
-# get current branch in git repo
-
-export PATH="$HOME/.cargo/bin:$PATH"
+export LD_LIBRARY_PATH

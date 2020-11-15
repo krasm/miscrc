@@ -28,6 +28,11 @@ bind C-d detach			# the same as d so you don't have to depress Ctrl
 bind r source-file ~/.tmux.conf \; display-message "Configuration reloaded."
 bind C-Space last-window
 bind C-c command-prompt -p command: "new-window -n '%1' '%1'"
+# split panes using | and -
+bind | split-window -h
+bind - split-window -v
+unbind '"'
+unbind %
 
 # Pane movement
 # http://unix.stackexchange.com/questions/14300/tmux-move-window-to-pane
@@ -62,13 +67,14 @@ set -g pane-active-border-bg colour1
 set -g pane-active-border-fg colour9
 
 # statusbar
+set -g status-interval 1
 set -g status-position bottom
 set -g status-justify left
 set -g status-bg colour2
 set -g status-fg colour137
 set -g status-attr dim
 set -g status-left ''
-set -g status-right '#[fg=colour233,bg=colour196,bold] %d/%m #[fg=colour233,bg=colour196,bold] %H:%M:%S '
+set -g status-right '#[fg=colour233,bg=colour196,bold] #(/opt/vc/bin/vcgencmd measure_temp | sed -e "s/temp=\(.\+\)/\1/") #[fg=colour233,bg=colour196,bold] %d/%m #[fg=colour233,bg=colour196,bold] %H:%M:%S '
 set -g status-right-length 50
 set -g status-left-length 20
 

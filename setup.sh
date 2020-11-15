@@ -1,4 +1,5 @@
 #!/bin/sh
+# -*- mode: sh -*-
 
 link() {
     SRC=$PWD/$1
@@ -23,3 +24,5 @@ link "_tmuxrc" ".local/config/.tmux.conf"
 link "_vimrc" ".vimrc"
 
 /bin/sh -f installvim.sh
+/bin/sh -f installemacs.sh
+/bin/sh -f installpython.sh

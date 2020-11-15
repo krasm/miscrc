@@ -1,6 +1,6 @@
 # -*-muttrc-*-
-set from=mkrasowski@gmail.com
-set realname="Marcin Krasowski"
+set from=m@krasm.net
+set realname="marcin"
 
 set folder="~/mail/"
 set mask="!^\\.[^.]"
@@ -17,16 +17,17 @@ mailboxes +gmail/cding\ problem \
           +stanley/sib.stanleybet \
           +stanley/sib.sent \
           +joulica/INBOX \
-	  +joulica/Sent\ Items \
-	  +krasm/INBOX
+          +joulica/Sent\ Items \
+          +oranmorebeavers/INBOX \
+          +krasm/INBOX
 
 
 set sendmail="~/opt/bin/msmtp-enqueue.sh"
 set use_from=yes
 set envelope_from=yes
 
-set editor=vim
-set pager=vim
+#set editor=vim
+#set pager=vim
 
 # LOCAL FOLDERS FOR CACHED HEADERS AND CERTIFICATES
 set alias_file       = ~/.mutt/alias         # where to store aliases
@@ -47,6 +48,8 @@ macro index gi "<change-folder>=INBOX<enter>" "Go to inbox"
 macro index ga "<change-folder>=[Google Mail]/All Mail<enter>" "Go to all mail"
 macro index gs "<change-folder>=[Google Mail]/Sent Mail<enter>" "Go to Sent Mail"
 macro index gd "<change-folder>=[Google Mail]/Drafts<enter>" "Go to drafts"
+
+macro index t "<pipe-message>mutt2task<enter> <save-message>+TODO<enter>"
 
 auto_view text/html
 

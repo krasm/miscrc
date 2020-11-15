@@ -14,6 +14,7 @@ set softtabstop=4
 set expandtab
 set autoindent
 set number
+set modeline
 
 "backup files 
 set backupdir=./.backup,.,/tmp
@@ -42,7 +43,7 @@ map <Leader>m <esc>:tabnext<CR>
 " map sort function to a key
 vnoremap <Leader>s :sort<CR>
 
-set background=dark
+" set background=light
 " colorscheme solarized
 
 set laststatus=2   " Always show the statusline

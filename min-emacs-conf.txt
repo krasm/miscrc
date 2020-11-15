@@ -1,6 +1,26 @@
-./configure --with-xml2 --with-zlib --without-x --without-sound --without-xpm \
+#!/bin/sh
+
+curl -o emacs.tar.xz http://ftp.gnu.org/gnu/emacs/emacs-26.3.tar.xz
+
+if [ ! -f emacs.tar.xz ]; then 
+    echo "Failed to retrieve sources -- quitting"
+    exit 1
+fi
+
+tar xvf emacs.tar.xz 
+if [ ! -d emacs-26.3 ]; then 
+    echo "Something went wrong - no source dir -- quitting"
+    exit 1
+fi
+
+# install dependencies and build 
+
+sudo apt update && sudo apt install libotf-dev fonts-inconsolata libgtk-3-dev libgnutls28-dev libncurses5-dev
+
+cd emacs-26.3 && ./configure --with-xml2 --with-zlib --without-x --without-sound --without-xpm \
   --without-jpeg --without-tiff --without-gif --without-png --without-rsvg \
     --without-imagemagick --with-xft --with-libotf --without-m17n-flt \
       --without-xaw3d --without-toolkit-scroll-bars --without-gpm --without-dbus \
         --without-gconf --without-gsettings --without-makeinfo \
-          --without-compress-install --with-x --prefix=$HOME/opt/emacs
+          --without-compress-install --with-x --prefix=$HOME/opt/emacs && make 
+echo "done"

@@ -1,5 +1,5 @@
 # -*-muttrc-*-
-set from=mkrasowski@gmail.com
+set from=m@krasm.net
 set realname="Marcin Krasowski"
 
 set folder="~/mail/"
@@ -14,10 +14,6 @@ mailboxes +gmail/cding\ problem \
           +gmail/cryptogram \
           +gmail/tech \
           +gmail/\[Gmail\]/Sent\ Mail \
-          +stanley/sib.stanleybet \
-          +stanley/sib.sent \
-          +joulica/INBOX \
-	  +joulica/Sent\ Items \
 	  +krasm/INBOX
 
 
@@ -25,8 +21,8 @@ set sendmail="~/opt/bin/msmtp-enqueue.sh"
 set use_from=yes
 set envelope_from=yes
 
-set editor=vim
-set pager=vim
+set editor="emacsclient -a emacs -t"
+set pager="emacsclient -a emacs -t"
 
 # LOCAL FOLDERS FOR CACHED HEADERS AND CERTIFICATES
 set alias_file       = ~/.mutt/alias         # where to store aliases

@@ -5,12 +5,13 @@ if [ -f $HOME/.bashrc ]; then
 	. $HOME/.bashrc
 fi
 
-PATH=$HOME/.local/bin:$HOME/opt/python3/bin:$HOME/opt/emacs/bin:$HOME/bin:$PATH
+PATH=$HOME/.local/bin:$HOME/opt/python3/bin:$HOME/opt/emacs/bin:$HOME/bin:$PATH:/home/krasm/texlive/2019/bin/x86_64-linux
 export PATH
 export  GPG_TTY=$(tty)
 
 export GROFF_ENCODING=utf8
 export GROFF_FONT_PATH=$HOME/.fonts
+export GROFF_TMAC_PATH=$HOME/opt/groff-labels:.:$GROFF_TMAC_PATH
 
 export CASSANDRA_HOME=$HOME/opt/apache-cassandra-3.11.3
 
@@ -21,12 +22,14 @@ export EMACS_CONF_DIR=$HOME/prj/emacsrc
 export LIBCRYPTO_ROOT=/home/krasm/opt/libcrypto
 export LD_LIBRARY_PATH=.:$HOME/opt/lib:/usr/local/lib:$LIBCRYPTO_ROOT/lib:$LD_LIBRARY_PATH
 
-export MANPATH=$HOME/opt/man:$MANPATH:/home/krasm/opt/texlive/2018/texmf-dist/doc/man:/home/krasm/opt/sc-im/share/man
-export INFOPATH=/home/krasm/opt/texlive/2018/texmf-dist/doc/info:.:$INFOPATH
+export MANPATH=$HOME/opt/man:$MANPATH:/home/krasm/opt/sc-im/share/man:/home/krasm/texlive/2019/texmf-dist/doc/man
+export INFOPATH=/home/krasm/texlive/2019/texmf-dist/doc/info:.:$INFOPATH
 
-export CLASSPATH=.:$HOME/opt/junit-platform-console-standalone-1.4.0-20180916.123844-34.jar:$CLASSPATH
+export TEXMFVAR=/home/krasm/.texmf/
 
-. $HOME/private/keys/aws_backup_access.key
+export CLASSPATH=.:$HOME/opt/junit-jupiter-5.5.2.jar:$HOME/opt/junit-platform-console-standalone-1.5.2.jar:$CLASSPATH:
+
+. $HOME/private/keys/aws_access.key
 
 export GOPATH=$HOME/opt/gopath
 export PATH=$GOPATH:$HOME/opt/go/bin:$PATH
@@ -37,9 +40,6 @@ export EDITOR=nvim
 export GEMFIRE=$HOME/opt/pivotal-gemfire-9.5.1
 export PATH=$GEMFIRE/bin:$PATH
 export CLASSPATH=.:$GEMFIRE/lib/geode-dependencies.jar:$CLASSPATH
-
-export CLASSPATH=.:$HOME/opt/junit-platform-console-standalone-1.3.1.jar
-
 export MPD_HOST=127.0.0.1
 export MPD_PORT=6617
 
@@ -49,7 +49,7 @@ export MPD_PORT=6617
 # User specific aliases and functions
 alias bat='upower -i /org/freedesktop/UPower/devices/battery_BAT0| grep -E "state|to\ full|percentage|to\ empty"'
 alias vi=nvim
-alias em='emacsclient -a emacs -t '
+alias em='emacsclient -a emacs '
 
 # get current branch in git repo
 function parse_git_branch() {

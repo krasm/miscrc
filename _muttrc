@@ -10,7 +10,7 @@ set spoolfile="~/mail/gmail/INBOX"
 set mbox_type=Maildir
 
 mailboxes +gmail/INBOX \
-          +krasm/INBOX
+          +krasm/INBOX \
           +oranmorebeavers/INBOX \
           +gmail/cding\ problem \
           +gmail/aikido \
@@ -18,14 +18,13 @@ mailboxes +gmail/INBOX \
           +gmail/tech \
           +gmail/\[Gmail\]/Sent\ Mail \
 
-
 set sendmail="~/opt/bin/msmtp-enqueue.sh"
 
 set use_from=yes
 set envelope_from=yes
 
-#set editor=vim
-#set pager=vim
+set editor=nvim
+set pager=nvim
 
 # LOCAL FOLDERS FOR CACHED HEADERS AND CERTIFICATES
 set alias_file       = ~/.mutt/alias         # where to store aliases

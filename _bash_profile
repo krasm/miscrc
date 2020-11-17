@@ -88,3 +88,5 @@ PATH=/home/krasm/opt/python3/bin:$PATH
 LD_LIBRARY_PATH=.:/home/krasm/opt/python3/lib:$LD_LIBRARY_PATH
 export PATH
 export LD_LIBRARY_PATH
+PATH=/opt/mutt-2.0.1:/home/krasm/opt/python3/bin:/home/krasm/opt/gopath:/home/krasm/opt/go/bin:.:/home/krasm/.local/bin:/home/krasm/bin:/home/krasm/opt/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games
+export PATH

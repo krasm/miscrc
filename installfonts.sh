@@ -51,3 +51,12 @@ generate_fonts
 
 rm -rf plpsfont/
 
+curl -# -L -O http://jmn.pl/pliki/ap1.101bas.zip
+mkdir -p tmp
+mv apl.101bas.zip tmp/
+(cd tmp && unzip apl.101bas.zip)
+
+generate_fonts
+
+rm -rf tmp/
+

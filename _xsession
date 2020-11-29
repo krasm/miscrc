@@ -1,7 +1,7 @@
 exec setxkbmap -layout pl,us alt:leftaltismeta -option caps:escape &
-exec xscreensaver -no-splash & 
-exec xrdb -merge ~/.Xresources & 
+#exec xautolock -time 10 -locker slock &
+exec xrdb -merge ~/.Xresources &
 exec synclient MaxTapTime=0 &
 #exec skypeforlinux &
-#awesome >> ~/.cache/awesome/stdout 2>> ~/.cache/awesome/stderr
-gnome-session
+awesome >> ~/.cache/awesome/stdout 2>> ~/.cache/awesome/stderr
+#gnome-session

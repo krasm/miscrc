@@ -11,8 +11,9 @@ export PATH
 export  GPG_TTY=$(tty)
 
 export GROFF_ENCODING=utf8
-export GROFF_FONT_PATH=$HOME/.fonts
+export GROFF_FONT_PATH=$HOME/.fonts/groff
 export GROFF_TMAC_PATH=$HOME/opt/groff-labels:.:$GROFF_TMAC_PATH
+export GS_FONTPATH=$HOME/.fonts/gs:
 
 export CASSANDRA_HOME=$HOME/opt/apache-cassandra-3.11.3
 

@@ -1,13 +1,25 @@
 #!/bin/sh
 
-sudo apt update -y
-sudo apt upgrade -y
+sudo apt update -y &&  sudo apt upgrade -y
 
 create_dir() {
     DST=$HOME/$1
     echo "creating $DST"
     if [ ! -f $DST ] ; then
 	mkdir -p $DST
+    fi
+}
+
+install_package() {
+    PKGNAME=$1
+    PKGSRC=$2
+    DSTDIR="$HOME/.vim/bundle/$1"
+
+    echo "installing $1"
+    if [ ! -d $DSTDIR ] ; then
+        git clone $PKGSRC $DSTDIR
+    else
+        (cd $DSTDIR && git pull)
     fi
 }
 
@@ -18,14 +30,17 @@ echo "getting pathogen"
 curl -LSso $HOME/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
 
 
-if [ ! -d $HOME/.vim/bundle/vim-sensible ] ; then
-    echo "getting sensible"
-    git clone https://github.com/tpope/vim-sensible.git $HOME/.vim/bundle/vim-sensible
-else
-    echo "updating vim sensible"
-    (cd $HOME/.vim/bundle/vim-sensible && git pull)
-fi
+install_package "vim-sensible" "https://github.com/tpope/vim-sensible.git"
+install_package "vim-commentary" "https://tpope.io/vim/commentary.git"
+install_package "vim-ale" "https://github.com/dense-analysis/ale.git"
+install_package "vim-fugitive" "https://github.com/tpope/vim-fugitive.git"
+install_package "vim-colors-solarized"  "git://github.com/altercation/vim-colors-solarized.git"
 
+sudo apt install -y pylint3 python3-flake8
+exit 1
+
+
+## git clone https://github.com/dense-analysis/ale.git
 echo "getting dependencies for you complete me"
 sudo apt install -y build-essential cmake python-dev python3-dev golang nodejs libnode-dev npm 
 

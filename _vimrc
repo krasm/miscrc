@@ -49,12 +49,9 @@ vnoremap <Leader>s :sort<CR>
 set laststatus=2   " Always show the statusline
 set encoding=utf-8 " Necessary to show Unicode glyphs
 
-let g:pymode_options_colorcolumn = 0
-let g:pymode_trim_whitespaces = 1
-let g:pymode_quickfix_minheight = 3
-let g:pymode_quickfix_maxheight = 6
-let g:pymode_python = 'python3'
-let g:pymode_lint_ignore = "E2,E501"
+let g:ale_linters = {
+      \   'python': ['flake8', 'pylint']
+      \}
 
 let &t_ti.="\e[1 q"
 let &t_SI.="\e[5 q"

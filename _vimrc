@@ -52,6 +52,8 @@ set encoding=utf-8 " Necessary to show Unicode glyphs
 let g:ale_linters = {
       \   'python': ['flake8', 'pylint']
       \}
+" disable ale by default - I am working on few crappy envs :(
+let g:ale_enabled=0
 
 let &t_ti.="\e[1 q"
 let &t_SI.="\e[5 q"

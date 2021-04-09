@@ -1,24 +1,10 @@
 # -*-muttrc-*-
-set from=m@krasm.net
-set realname="marcin"
+#
+#
+macro index <f2> '<sync-mailbox><enter-command>source "gpg -d ~/.mutt/box.settings.gpg |"<enter><change-folder>!<enter>'
+macro index <f3> '<sync-mailbox><enter-command>source "gpg -d ~/.mutt/gmail.settings.gpg |"<enter><change-folder>!<enter>'
 
-set folder="~/mail/"
-set mask="!^\\.[^.]"
-set record="+.Sent"
-set postponed="+.Drafts"
-set spoolfile="~/mail/gmail/INBOX"
-set mbox_type=Maildir
-
-mailboxes +gmail/INBOX \
-          +krasm/INBOX \
-          +oranmorebeavers/INBOX \
-          +gmail/cding\ problem \
-          +gmail/aikido \
-          +gmail/cryptogram \
-          +gmail/tech \
-          +gmail/\[Gmail\]/Sent\ Mail \
-
-set sendmail="~/opt/bin/msmtp-enqueue.sh"
+source "gpg -d ~/.mutt/abox.settings.gpg |"
 
 set use_from=yes
 set envelope_from=yes
@@ -40,17 +26,6 @@ unignore from: to: cc: date: subject:   # show only these
 unhdr_order *                           # some distros order things by default
 hdr_order from: to: cc: date: subject:  # and in this order
 
-<<<<<<< HEAD
-bind index g noop
-macro index gi "<change-folder>=INBOX<enter>" "Go to inbox"
-macro index ga "<change-folder>=[Google Mail]/All Mail<enter>" "Go to all mail"
-macro index gs "<change-folder>=[Google Mail]/Sent Mail<enter>" "Go to Sent Mail"
-macro index gd "<change-folder>=[Google Mail]/Drafts<enter>" "Go to drafts"
-
-macro index t "<pipe-message>mutt2task<enter> <save-message>+TODO<enter>"
-
-=======
->>>>>>> c7fc26b0db498798ce01dd9710282ff8b7fa23c0
 auto_view text/html
 alternative_order text/plain text/enriched text/html
 

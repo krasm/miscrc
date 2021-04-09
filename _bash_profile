@@ -1,10 +1,5 @@
 # -*- mode: sh -*-
 
-# Source global definitions
-if [ -f $HOME/.bashrc ]; then
-	. $HOME/.bashrc
-fi
-
 PATH=.:$HOME/.local/bin:$HOME/bin:$HOME/opt/bin:$PATH
 export PATH
 export GPG_TTY=$(tty)

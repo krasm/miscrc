@@ -3,7 +3,7 @@
 if command -v apt &> /dev/null
 then
     sudo apt update -y &&  sudo apt upgrade -y
-    sudo apt install -y pylint3 python3-flake8
+    sudo apt install -y pylint3 python3-flake8 vim-nox curl git
 fi
 
 

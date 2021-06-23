@@ -46,6 +46,7 @@ install_package "vim-colors-solarized"  "git://github.com/altercation/vim-colors
 install_package "nerdtree" "https://github.com/scrooloose/nerdtree.git"
 install_package "airline" "https://github.com/vim-airline/vim-airline"
 install_package "python-mode" "https://github.com/klen/python-mode.git"
+install_package "vimwiki" "https://github.com/vimwiki/vimwiki.git"
 
 vim +helptags +qall
 

@@ -1,24 +1,10 @@
 # -*-muttrc-*-
-set from=m@krasm.net
-set realname="marcin"
+#
+#
+macro index <f2> '<sync-mailbox><enter-command>source "gpg -d ~/.mutt/box.settings.gpg |"<enter><change-folder>!<enter>'
+macro index <f3> '<sync-mailbox><enter-command>source "gpg -d ~/.mutt/gmail.settings.gpg |"<enter><change-folder>!<enter>'
 
-set folder="~/mail/"
-set mask="!^\\.[^.]"
-set record="+.Sent"
-set postponed="+.Drafts"
-set spoolfile="~/mail/gmail/INBOX"
-set mbox_type=Maildir
-
-mailboxes +gmail/INBOX \
-          +krasm/INBOX \
-          +oranmorebeavers/INBOX \
-          +gmail/cding\ problem \
-          +gmail/aikido \
-          +gmail/cryptogram \
-          +gmail/tech \
-          +gmail/\[Gmail\]/Sent\ Mail \
-
-set sendmail="~/opt/bin/msmtp-enqueue.sh"
+source "gpg -d ~/.mutt/abox.settings.gpg |"
 
 set use_from=yes
 set envelope_from=yes

@@ -6,13 +6,15 @@ if [ -f $HOME/.bashrc ]; then
 fi
 
 PATH=$HOME/.local/bin:$HOME/opt/python3/bin:$HOME/opt/emacs/bin:$HOME/bin:$PATH:/home/krasm/texlive/2019/bin/x86_64-linux:/snap/bin
+PATH=.:$HOME/.local/bin:$HOME/bin:$HOME/opt/bin:$PATH
+
 export PATH
 
 export GPG_TTY=$(tty)
 
 export GROFF_ENCODING=utf8
 export GROFF_FONT_PATH=$HOME/.fonts/groff
-export EMACS_CONF_DIR=$HOME/prj/emacsrc
+export EMACS_CONF_DIR=$HOME/prj/misc/emacsrc
 
 export GS_FONTPAH=$HOME/.fonts/gs
 
@@ -25,11 +27,11 @@ if [ -f $HOME/private/keys/aws_backup_access.key ]; then
     . $HOME/private/keys/aws_backup_access.key
 fi
 
-export GOPATH=$HOME/opt/gopath
-export PATH=$GOPATH:$HOME/opt/go/bin:$PATH
+#export GOPATH=$HOME/opt/golang/go/bin
+export PATH=$HOME/opt/golang/go/bin:$PATH
 
 export XMLLINT_INDENT="    "
-export EDITOR=emacsclient
+export EDITOR=nvim
 
 export MPD_HOST=127.0.0.1
 export MPD_PORT=6617
@@ -40,6 +42,11 @@ export MPD_PORT=6617
 alias bat='upower -i /org/freedesktop/UPower/devices/battery_BAT0| grep -E "state|to\ full|percentage|to\ empty"'
 alias vi=nvim
 alias em='emacsclient -a emacs '
+
+if [ -f $HOME/.os_credentials ]; then 
+    # creds
+    source $HOME/.os_credentials
+fi
 
 # get current branch in git repo
 parse_git_branch() {
@@ -97,3 +104,6 @@ PATH=/home/krasm/opt/python3/bin:$PATH
 LD_LIBRARY_PATH=.:/home/krasm/opt/python3/lib:$LD_LIBRARY_PATH
 export PATH
 export LD_LIBRARY_PATH
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="/home/m.krasowski/.sdkman"
+[[ -s "/home/m.krasowski/.sdkman/bin/sdkman-init.sh" ]] && source "/home/m.krasowski/.sdkman/bin/sdkman-init.sh"

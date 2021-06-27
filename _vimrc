@@ -43,11 +43,12 @@ map <Leader>m <esc>:tabnext<CR>
 " map sort function to a key
 vnoremap <Leader>s :sort<CR>
 
-" set background=light
 " colorscheme solarized
 
 set laststatus=2   " Always show the statusline
 set encoding=utf-8 " Necessary to show Unicode glyphs
+
+packadd termdebug
 
 let g:ale_linters = {
       \   'python': ['flake8', 'pylint']
@@ -61,3 +62,4 @@ let &t_EI.="\e[1 q"
 let &t_te.="\e[0 q"
 
 let g:vimwiki_list = [{'path': '~/docs/vimwiki/'}]
+packadd termdebug

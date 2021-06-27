@@ -16,7 +16,7 @@ xterm*faceSize5: 24
 UXTerm*metaSendsEscape: true
 UXTerm*eightBitInput: false
 
-urxvt.font:  xft:Inconsolata:size=10
+urxvt.font:  xft:Inconsolata:size=14
 
 !-------------------------------------------------------------------------------
 ! Xft settings

@@ -1,6 +1,13 @@
 # -*- mode: sh -*-
 
+# Source global definitions
+if [ -f $HOME/.bashrc ]; then
+	. $HOME/.bashrc
+fi
+
+PATH=$HOME/.local/bin:$HOME/opt/python3/bin:$HOME/opt/emacs/bin:$HOME/bin:$PATH:/home/krasm/texlive/2019/bin/x86_64-linux:/snap/bin
 PATH=.:$HOME/.local/bin:$HOME/bin:$HOME/opt/bin:$PATH
+
 export PATH
 
 export GPG_TTY=$(tty)
@@ -13,7 +20,8 @@ export GS_FONTPAH=$HOME/.fonts/gs
 
 export MANPATH=$HOME/opt/man:.:$MANPATH:
 
-export CLASSPATH=.:$HOME/opt/java/junit-platform-console-standalone-1.7.2.jar
+export CLASSPATH=.:$HOME/opt/junit-platform-console-standalone-1.6.0.jar:$HOME/opt/junit-jupiter-5.6.0.jar:$CLASSPATH
+export CPLUS_INCLUDE_PATH=$CXX_INCLUDE_PATH:.:$HOME/opt/catch2/include
 
 if [ -f $HOME/private/keys/aws_backup_access.key ]; then
     . $HOME/private/keys/aws_backup_access.key
@@ -28,12 +36,17 @@ export EDITOR=nvim
 export MPD_HOST=127.0.0.1
 export MPD_PORT=6617
 
+# . <(eksctl completion bash)
+
 # User specific aliases and functions
 alias bat='upower -i /org/freedesktop/UPower/devices/battery_BAT0| grep -E "state|to\ full|percentage|to\ empty"'
 alias vi=nvim
-alias t=$HOME/opt/todotxt/todo.sh
-# creds
-source $HOME/.os_credentials
+alias em='emacsclient -a emacs '
+
+if [ -f $HOME/.os_credentials ]; then 
+    # creds
+    source $HOME/.os_credentials
+fi
 
 # get current branch in git repo
 parse_git_branch() {
@@ -84,6 +97,13 @@ parse_git_dirty() {
 
 export PS1="\[\e[36m\]\W\[\e[m\]\[\e[32m\]\`parse_git_branch\`\[\e[m\] $ "
 
+# fix for systemctl
+export XDG_RUNTIME_DIR=/run/user/`id -u`
+
+PATH=/home/krasm/opt/python3/bin:$PATH
+LD_LIBRARY_PATH=.:/home/krasm/opt/python3/lib:$LD_LIBRARY_PATH
+export PATH
+export LD_LIBRARY_PATH
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="/home/m.krasowski/.sdkman"
 [[ -s "/home/m.krasowski/.sdkman/bin/sdkman-init.sh" ]] && source "/home/m.krasowski/.sdkman/bin/sdkman-init.sh"

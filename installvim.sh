@@ -1,11 +1,5 @@
 #!/bin/sh
 
-if command -v apt &> /dev/null
-then
-    sudo apt update -y &&  sudo apt upgrade -y
-    sudo apt install -y pylint3 python3-flake8 vim-nox curl git
-fi
-
 
 create_dir() {
     DST=$HOME/$1
@@ -28,8 +22,24 @@ install_package() {
     fi
 }
 
+check_error() {
+    RESULT=$?
+    if [ $RESULT != 0 ]; then
+        echo "failed to execute - quitting"
+        exit 1
+    fi
+}
+
+echo "installing system dependencies"
+if command -v apt &> /dev/null
+then
+    sudo apt update -y &&  sudo apt upgrade -y
+    sudo apt install -y pylint3 python3-flake8 vim-nox curl git neovim python3-neovim python3-dev python3-pynvim python3-pip 
+    check_error $?
+fi
+
 echo "installing flake8"
-python -m pip install flake8
+python3 -m pip install flake8 tasklib
 
 create_dir ".vim/autoload"
 create_dir ".vim/bundle"
@@ -47,8 +57,10 @@ install_package "nerdtree" "https://github.com/scrooloose/nerdtree.git"
 install_package "airline" "https://github.com/vim-airline/vim-airline"
 install_package "python-mode" "https://github.com/klen/python-mode.git"
 install_package "vimwiki" "https://github.com/vimwiki/vimwiki.git"
+install_package "taskwiki" "https://github.com/tools-life/taskwiki"
 
 vim +helptags +qall
+nvim +helptags +qall
 
 ln -s $PWD/_vimrc  $HOME/.vimrc
 

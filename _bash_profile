@@ -40,7 +40,7 @@ export MPD_PORT=6617
 
 # User specific aliases and functions
 alias bat='upower -i /org/freedesktop/UPower/devices/battery_BAT0| grep -E "state|to\ full|percentage|to\ empty"'
-alias vi=nvim
+alias vi=$HOME/opt/neovim/bin/nvim
 alias em='emacsclient -a emacs '
 
 if [ -f $HOME/.os_credentials ]; then 

@@ -34,12 +34,19 @@ echo "installing system dependencies"
 if command -v apt &> /dev/null
 then
     sudo apt update -y &&  sudo apt upgrade -y
-    sudo apt install -y pylint3 python3-flake8 vim-nox curl git neovim python3-neovim python3-dev python3-pynvim python3-pip 
+    sudo apt install -y pylint3 python3-flake8 vim-nox curl git neovim python3-neovim python3-dev python3-pynvim python3-pip  taskwarrior
     check_error $?
 fi
 
 echo "installing flake8"
 python3 -m pip install flake8 tasklib
+
+echo "building neovim"
+sudo apt-get install ninja-build gettext libtool libtool-bin autoconf automake cmake g++ pkg-config unzip
+mkdir /tmp/neovim
+git clone https://github.com/neovim/neovim.git /tmp/neovim
+cd /tmp/neovim && make CMAKE_BUILD_TYPE=RelWithDebInfo CMAKE_INSTALL_PREFIX=$HOME/opt/neovim && make install
+
 
 create_dir ".vim/autoload"
 create_dir ".vim/bundle"

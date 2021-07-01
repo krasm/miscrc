@@ -36,10 +36,21 @@ then
     sudo apt update -y &&  sudo apt upgrade -y
     sudo apt install -y pylint3 python3-flake8 vim-nox curl git neovim python3-neovim python3-dev python3-pynvim python3-pip  taskwarrior
     check_error $?
+    sudo apt install checkstyle
+    check_error $?
+    sudo apt install protobuf npm
 fi
 
 echo "installing flake8"
 python3 -m pip install flake8 tasklib
+
+echo "building java language server"
+# java 13
+
+# java home
+
+#build
+
 
 echo "building neovim"
 sudo apt-get install ninja-build gettext libtool libtool-bin autoconf automake cmake g++ pkg-config unzip

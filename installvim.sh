@@ -76,6 +76,7 @@ install_package "airline" "https://github.com/vim-airline/vim-airline"
 install_package "python-mode" "https://github.com/klen/python-mode.git"
 install_package "vimwiki" "https://github.com/vimwiki/vimwiki.git"
 install_package "taskwiki" "https://github.com/tools-life/taskwiki"
+install_package "kotlin-vim" "https://github.com/udalov/kotlin-vim"
 
 vim +helptags +qall
 nvim +helptags +qall

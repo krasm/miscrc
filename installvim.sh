@@ -80,5 +80,8 @@ install_package "taskwiki" "https://github.com/tools-life/taskwiki"
 vim +helptags +qall
 nvim +helptags +qall
 
+if [ -L $HOME/.vimrc ]; then 
+    rm $HOME/.vimrc
+fi
 ln -s $PWD/_vimrc  $HOME/.vimrc
 

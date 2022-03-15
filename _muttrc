@@ -26,6 +26,14 @@ unignore from: to: cc: date: subject:   # show only these
 unhdr_order *                           # some distros order things by default
 hdr_order from: to: cc: date: subject:  # and in this order
 
+bind index g noop
+macro index gi "<change-folder>=INBOX<enter>" "Go to inbox"
+macro index ga "<change-folder>=[Google Mail]/All Mail<enter>" "Go to all mail"
+macro index gs "<change-folder>=[Google Mail]/Sent Mail<enter>" "Go to Sent Mail"
+macro index gd "<change-folder>=[Google Mail]/Drafts<enter>" "Go to drafts"
+
+macro index t "<pipe-message>mutt2task<enter> <save-message>+TODO<enter>"
+
 auto_view text/html
 alternative_order text/plain text/enriched text/html
 

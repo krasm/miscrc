@@ -1,11 +1,21 @@
 #!/bin/sh
 
-if command -v apt &> /dev/null
-then
-    sudo apt update -y &&  sudo apt upgrade -y
-    sudo apt install -y pylint3 python3-flake8 vim-nox curl git
-fi
+machine=`uname -s`
+LINKS="yes"
 
+case $machine in
+    "CYGWIN_NT"* )
+        echo "on cygwin you need to install packages manually"
+        LINKS="no"
+        ;;
+    * )
+        if command -v apt &> /dev/null
+        then
+            sudo apt update -y &&  sudo apt upgrade -y
+            sudo apt install -y pylint3 python3-flake8 vim-nox curl git
+        fi
+    ;;
+esac
 
 create_dir() {
     DST=$HOME/$1
@@ -49,5 +59,9 @@ install_package "python-mode" "https://github.com/klen/python-mode.git"
 
 vim +helptags +qall
 
-ln -s $PWD/_vimrc  $HOME/.vimrc
+if [ "x"$LINKS != "yes" ]; then
+    ln -s $PWD/_vimrc  $HOME/.vimrc
+else
+    cp _vimrc $HOME/.vimrc
+fi
 

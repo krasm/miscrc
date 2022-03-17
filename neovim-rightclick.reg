@@ -1,0 +1,22 @@
+Windows Registry Editor Version 5.00
+
+[HKEY_CLASSES_ROOT\*\shell\nvim-qt]
+@="Open Neovim"
+"Icon"="\"C:\\tools\\neovim\\nvim-win64\\bin\\nvim-qt.exe\""
+
+[HKEY_CLASSES_ROOT\*\shell\nvim-qt\command]
+@="\"C:\\tools\\neovim\\nvim-win64\\bin\\nvim-qt.exe\" \"%1\""
+
+[HKEY_CLASSES_ROOT\Directory\shell\nvim-qt]
+@="Open Neovim Here"
+"Icon"="\"C:\\tools\\neovim\\nvim-win64\\bin\\nvim-qt.exe\""
+
+[HKEY_CLASSES_ROOT\Directory\shell\nvim-qt\command]
+@="\"C:\\tools\\neovim\\nvim-win64\\bin\\nvim-qt.exe\" \"%1\""
+
+[HKEY_CLASSES_ROOT\Directory\Background\shell\nvim-qt]
+@="&Neovim here"
+"Icon"="\"C:\\tools\\neovim\\nvim-win64\\bin\\nvim-qt.exe\""
+
+[HKEY_CLASSES_ROOT\Directory\Background\shell\nvim-qt\command]
+@="\"C:\\tools\\neovim\\nvim-win64\\bin\\nvim-qt.exe\" \"%v\""

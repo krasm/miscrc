@@ -10,9 +10,7 @@ Plug 'https://github.com/vim-airline/vim-airline'
 Plug 'https://github.com/klen/python-mode.git'
 Plug 'https://github.com/vimwiki/vimwiki.git'
 Plug 'https://github.com/tools-life/taskwiki'
-Plug 'https://github.com/udalov/kotlin-vim'
 Plug 'https://github.com/fatih/vim-go.git'
-Plug 'kyazdani42/nvim-web-devicons'
 Plug 'https://github.com/jamessan/vim-gnupg.git'
 call plug#end()
 

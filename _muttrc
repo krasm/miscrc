@@ -32,7 +32,7 @@ macro index ga "<change-folder>=[Google Mail]/All Mail<enter>" "Go to all mail"
 macro index gs "<change-folder>=[Google Mail]/Sent Mail<enter>" "Go to Sent Mail"
 macro index gd "<change-folder>=[Google Mail]/Drafts<enter>" "Go to drafts"
 
-macro index t "<pipe-message>mutt2task<enter> <save-message>+TODO<enter>"
+macro index t "<pipe-message>mutt2task.py<enter> <save-message>+TODO<enter>"
 
 auto_view text/html
 alternative_order text/plain text/enriched text/html

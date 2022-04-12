@@ -4,7 +4,7 @@
 macro index <f2> '<sync-mailbox><enter-command>source "gpg -d ~/.mutt/box.settings.gpg |"<enter><change-folder>!<enter>'
 macro index <f3> '<sync-mailbox><enter-command>source "gpg -d ~/.mutt/gmail.settings.gpg |"<enter><change-folder>!<enter>'
 
-source "gpg -d ~/.mutt/abox.settings.gpg |"
+source "gpg -d ~/.mutt/box.settings.gpg |"
 
 set use_from=yes
 set envelope_from=yes

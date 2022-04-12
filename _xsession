@@ -3,5 +3,7 @@ exec setxkbmap -layout pl,us alt:leftaltismeta -option caps:escape &
 exec xrdb -merge ~/.Xresources &
 exec synclient MaxTapTime=0 &
 #exec skypeforlinux &
+eval $(gnome-keyring-daemon --start)
+export SSH_AUTH_SOCK
 awesome >> ~/.cache/awesome/stdout 2>> ~/.cache/awesome/stderr
 #gnome-session

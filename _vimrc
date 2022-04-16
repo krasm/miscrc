@@ -5,13 +5,11 @@ Plug 'https://github.com/tpope/vim-sensible.git'
 Plug 'https://tpope.io/vim/commentary.git'
 Plug 'https://github.com/dense-analysis/ale.git'
 Plug 'https://github.com/tpope/vim-fugitive.git'
-Plug 'git://github.com/altercation/vim-colors-solarized.git'
 Plug 'https://github.com/scrooloose/nerdtree.git'
 Plug 'https://github.com/vim-airline/vim-airline'
 Plug 'https://github.com/klen/python-mode.git'
 Plug 'https://github.com/vimwiki/vimwiki.git'
 Plug 'https://github.com/tools-life/taskwiki'
-Plug 'https://github.com/fatih/vim-go.git'
 Plug 'https://github.com/jamessan/vim-gnupg.git'
 call plug#end()
 
@@ -40,6 +38,9 @@ nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
+"clipboard
+set clipboard=unnamed
+
 "folding
 set foldmethod=indent
 set foldlevel=99
@@ -62,13 +63,11 @@ vnoremap <Leader>s :sort<CR>
 set laststatus=2   " Always show the statusline
 set encoding=utf-8 " Necessary to show Unicode glyphs
 
-packadd termdebug
-
 let g:ale_linters = {
       \   'python': ['flake8', 'pylint']
       \}
 " disable ale by default - I am working on few crappy envs :(
-let g:ale_enabled=0
+let g:ale_enabled=1
 
 let &t_ti.="\e[1 q"
 let &t_SI.="\e[5 q"

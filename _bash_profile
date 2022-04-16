@@ -14,7 +14,7 @@ export GPG_TTY=$(tty)
 
 export GROFF_ENCODING=utf8
 export GROFF_FONT_PATH=$HOME/.fonts/groff
-export EMACS_CONF_DIR=$HOME/prj/misc/emacsrc
+export EMACS_CONF_DIR=$HOME/prj/emacsrc
 
 export GS_FONTPAH=$HOME/.fonts/gs
 
@@ -94,6 +94,11 @@ parse_git_dirty() {
     echo ""
   fi
 }
+
+if [ -n "$DESKTOP_SESSION" ];then
+    eval $(gnome-keyring-daemon --start)
+    export SSH_AUTH_SOCK
+fi
 
 export PS1="\[\e[36m\]\W\[\e[m\]\[\e[32m\]\`parse_git_branch\`\[\e[m\] $ "
 

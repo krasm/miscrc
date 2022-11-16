@@ -16,7 +16,10 @@ xterm*faceSize5: 24
 UXTerm*metaSendsEscape: true
 UXTerm*eightBitInput: false
 
-urxvt.font:  xft:Inconsolata:size=10
+urxvt.termName: screen-256color
+urxvt.font:  xft:Inconsolata:size=14
+urxvt.boldFont:  xft:Inconsolata:size=14:style=bold
+urxvt.loginShell: true
 
 !-------------------------------------------------------------------------------
 ! Xft settings

@@ -1,5 +1,5 @@
-exec setxkbmap -layout pl,us alt:leftaltismeta -option caps:escape &
-#exec xautolock -time 10 -locker slock &
+exec setxkbmap pl,us -option alt:leftaltismeta  -option caps:swapescap &
+exec xautolock -time 60 -locker slock &
 exec xrdb -merge ~/.Xresources &
 exec synclient MaxTapTime=0 &
 #exec skypeforlinux &

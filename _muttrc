@@ -9,15 +9,15 @@ source "gpg -d ~/.mutt/box.settings.gpg |"
 set use_from=yes
 set envelope_from=yes
 
-set editor=nvim
-set pager=nvim
+set editor=vim
+set pager=vim
 
 # LOCAL FOLDERS FOR CACHED HEADERS AND CERTIFICATES
 set alias_file       = ~/.mutt/alias         # where to store aliases
 set header_cache     = ~/.mutt/cache/headers # where to store headers
 set message_cachedir = ~/.mutt/cache/bodies  # where to store bodies
 set certificate_file = ~/.mutt/certificates  # where to store certs
-set mailcap_path     = ~/.mailcap       # entries for filetypes
+set mailcap_path     = ~/.mutt/mailcap       # entries for filetypes
 set tmpdir           = ~/.mutt/temp          # where to keep temp files
 
 # Header Options -------------------------------------

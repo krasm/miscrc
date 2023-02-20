@@ -82,6 +82,7 @@ echo "getting pathogen"
 curl -LSso $HOME/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
 
 
+#python3 -m pip install flake8 tasklib six packaging
 install_package "vim-sensible" "https://github.com/tpope/vim-sensible.git"
 install_package "vim-commentary" "https://tpope.io/vim/commentary.git"
 install_package "vim-ale" "https://github.com/dense-analysis/ale.git"
@@ -103,4 +104,5 @@ if [ "x"$LINKS != "yes" ]; then
 else
     cp _vimrc $HOME/.vimrc
 fi
+
 

@@ -3,5 +3,7 @@ exec xautolock -time 60 -locker slock &
 exec xrdb -merge ~/.Xresources &
 exec synclient MaxTapTime=0 &
 #exec skypeforlinux &
+eval $(gnome-keyring-daemon --start)
+export SSH_AUTH_SOCK
 awesome >> ~/.cache/awesome/stdout 2>> ~/.cache/awesome/stderr
 #gnome-session

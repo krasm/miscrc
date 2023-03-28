@@ -11,6 +11,8 @@ Plug 'https://github.com/klen/python-mode.git'
 Plug 'https://github.com/vimwiki/vimwiki.git'
 Plug 'https://github.com/tools-life/taskwiki'
 Plug 'https://github.com/jamessan/vim-gnupg.git'
+Plug 'https://github.com/dpelle/vim-LanguageTool'
+Plug 'ellisonleao/gruvbox.nvim'
 call plug#end()
 
 filetype plugin indent on
@@ -28,9 +30,13 @@ set relativenumber
 set modeline
 set termguicolors
 
-"backup files  
+"backup files
 set backupdir=./.backup,.,/tmp
 set directory=.,./.backup,/tmp
+
+"colorscehem
+set background=light
+colorscheme gruvbox
 
 "split navigations
 nnoremap <C-J> <C-W><C-J>
@@ -59,6 +65,7 @@ map <Leader>m <esc>:tabnext<CR>
 vnoremap <Leader>s :sort<CR>
 
 "colorscheme solarized
+let g:languagetool_jar='$HOME/opt/java/languagetool-commandline.jar'
 
 set laststatus=2   " Always show the statusline
 set encoding=utf-8 " Necessary to show Unicode glyphs

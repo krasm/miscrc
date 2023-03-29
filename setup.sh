@@ -25,4 +25,4 @@ link "_vimrc" ".vimrc"
 
 /bin/sh -f installvim.sh
 /bin/sh -f installemacs.sh
-/bin/sh -f installpython.sh
+/bin/sh -f installlua.sh

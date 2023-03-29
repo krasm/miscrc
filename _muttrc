@@ -1,16 +1,23 @@
+#
 # -*-muttrc-*-
 #
-#
-macro index <f2> '<sync-mailbox><enter-command>source "gpg -d ~/.mutt/box.settings.gpg |"<enter><change-folder>!<enter>'
-macro index <f3> '<sync-mailbox><enter-command>source "gpg -d ~/.mutt/gmail.settings.gpg |"<enter><change-folder>!<enter>'
 
-source "gpg -d ~/.mutt/box.settings.gpg |"
+set mbox_type=Maildir
+set folder="~/mail/IN/"
+set mask="!^\\.[^.]"
+set record="~/mail/krasm/Sent"
+set postponed="~/mail/krasm/Drafts"
+set spoolfile="~/mail/IN/krasm"
 
+set sendmail="~/opt/bin/msmtp-enqueue"
 set use_from=yes
 set envelope_from=yes
 
-set editor=vim
-set pager=vim
+#mailboxes "+krasm"  "+gmail"
+mailboxes `find ~/mail/IN -maxdepth 1 -type l -printf "+'%f' "`
+
+set editor=nvim
+set pager=nvim
 
 # LOCAL FOLDERS FOR CACHED HEADERS AND CERTIFICATES
 set alias_file       = ~/.mutt/alias         # where to store aliases
@@ -27,29 +34,25 @@ unhdr_order *                           # some distros order things by default
 hdr_order from: to: cc: date: subject:  # and in this order
 
 bind index g noop
-macro index gi "<change-folder>=INBOX<enter>" "Go to inbox"
-macro index ga "<change-folder>=[Google Mail]/All Mail<enter>" "Go to all mail"
-macro index gs "<change-folder>=[Google Mail]/Sent Mail<enter>" "Go to Sent Mail"
-macro index gd "<change-folder>=[Google Mail]/Drafts<enter>" "Go to drafts"
-
-macro index t "<pipe-message>mutt2task.py<enter> <save-message>+TODO<enter>"
+macro index A "<tag-pattern>~N<enter><tag-prefix><clear-flag>N<untag-pattern>.<enter>" "mark all new as read"
+#macro index t "<pipe-message>mutt2task.py<enter> <save-message>+TODO<enter>"
 
 auto_view text/html
 alternative_order text/plain text/enriched text/html
 
-# set sidebar_visible=yes
+set sidebar_visible=yes
 # Move the highlight to the previous mailbox
-#bind index,pager \Cp sidebar-prev
+bind index,pager \Cp sidebar-prev
 # Move the highlight to the next mailbox
-#bind index,pager \Cn sidebar-next
+bind index,pager \Cn sidebar-next
 # Open the highlighted mailbox
-#bind index,pager \Co sidebar-open
+bind index,pager \Co sidebar-open
 # Move the highlight to the previous mailbox containing new, or flagged mail.
-#bind index,pager <F5> sidebar-prev-new
+bind index,pager <F5> sidebar-prev-new
 # Move the highlight to the next mailbox containing new, or flagged, mail.
-#bind index,pager <F6> sidebar-next-new
+bind index,pager <F6> sidebar-next-new
 # Toggle the visibility of the Sidebar.
-#bind index,pager B sidebar-toggle-visible
+bind index,pager B sidebar-toggle-visible
 
 # colors
 #source $HOME/.mutt/mutt-colors-solarized-light-16.muttrc
@@ -68,21 +71,10 @@ set pgp_verify_key_command="gpg --verbose --batch --fingerprint --check-sigs %r"
 set pgp_list_pubring_command="gpg --no-verbose --batch --quiet --with-colons --with-fingerprint --with-fingerprint --list-keys %r"
 set pgp_list_secring_command="gpg --no-verbose --batch --quiet --with-colons --with-fingerprint --with-fingerprint --list-secret-keys %r"
 
-# fetch keys
-# set pgp_getkeys_command="pkspxycwrap %r"
-
-# pattern for good signature - may need to be adapted to locale!
-
-# set pgp_good_sign="^gpgv?: Good signature from "
-
-# OK, here's a version which uses gnupg's message catalog:
-# set pgp_good_sign="`gettext -d gnupg -s 'Good signature from "' | tr -d '"'`"
-
 # This version uses --status-fd messages
 set pgp_good_sign="^\\[GNUPG:\\] GOODSIG"
-
 # pattern to verify a decryption occurred
 set pgp_decryption_okay="^\\[GNUPG:\\] DECRYPTION_OKAY"
 
 #set pgp_default_key=3072R/324EE30B
-#set pgp_use_gpg_agent
+set pgp_use_gpg_agent

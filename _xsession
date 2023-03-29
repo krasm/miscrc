@@ -1,9 +1,8 @@
-exec setxkbmap pl,us -option alt:leftaltismeta  -option caps:swapescap &
-exec xautolock -time 60 -locker slock &
-exec xrdb -merge ~/.Xresources &
+exec setxkbmap pl,us -option alt:leftaltismeta,caps:escape  &
+exec xrdb -merge ~/.xresources &
 exec synclient MaxTapTime=0 &
-#exec skypeforlinux &
 eval $(gnome-keyring-daemon --start)
 export SSH_AUTH_SOCK
+xset s 300 5 &
+xss-lock -n /usr/libexec/xsecurelock/dimmer -l -- xsecurelock &
 awesome >> ~/.cache/awesome/stdout 2>> ~/.cache/awesome/stderr
-#gnome-session

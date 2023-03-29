@@ -1,0 +1,114 @@
+# -*- mode: sh -*-
+
+# if running bash
+if [ -n "$BASH_VERSION" ]; then
+    # include .bashrc if it exists
+    if [ -f "$HOME/.bashrc" ]; then
+	. "$HOME/.bashrc"
+    fi
+fi
+
+# set PATH so it includes user's private bin if it exists
+if [ -d "$HOME/bin" ] ; then
+    PATH="$HOME/bin:$PATH"
+fi
+
+# set PATH so it includes user's private bin if it exists
+if [ -d "$HOME/.local/bin" ] ; then
+    PATH="$HOME/.local/bin:$PATH"
+fi
+
+export CONFLUENT_HOME=$HOME/opt/confluent-7.3.0
+export PATH=$HOME/opt/node/bin:/snap/bin:.:$HOME/opt/bin:$PATH:$CONFLUENT_HOME/bin:$PATH
+
+export GPG_TTY=$(tty)
+
+export GROFF_ENCODING=utf8
+export GROFF_FONT_PATH=$HOME/.fonts/groff
+export EMACS_CONF_DIR=$HOME/prjs/emacsrc
+
+export GS_FONTPAH=$HOME/.fonts/gs
+
+export MANPATH=$HOME/opt/man:.:$MANPATH:
+
+
+export CLASSPATH=.:$HOME/opt/junit-platform-console-standalone-1.6.0.jar:$HOME/opt/junit-jupiter-5.6.0.jar:$CLASSPATH
+export CPLUS_INCLUDE_PATH=$CXX_INCLUDE_PATH:.:$HOME/opt/catch2/include
+
+if [ -f $HOME/private/keys/aws_backup_access.key ]; then
+    . $HOME/private/keys/aws_backup_access.key
+fi
+if [ -f $HOME/private/keys/openmap.key ]; then
+    . $HOME/private/keys/openmap.key
+fi
+
+export XMLLINT_INDENT="    "
+export EDITOR=vi
+
+export MPD_HOST=127.0.0.1
+export MPD_PORT=6617
+
+# User specific aliases and functions
+alias l='ls -al'
+alias e=emacs
+alias em='emacsclient -a emacs '
+alias vi=nvim
+alias vim=nvim
+alias v=nvim
+
+# get current branch in git repo
+parse_git_branch() {
+  BRANCH=`git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/'`
+  if [ ! "${BRANCH}" == "" ]
+  then
+    STAT=`parse_git_dirty`
+    echo "[${BRANCH}${STAT}]"
+  else
+    echo ""
+  fi
+}
+
+# get current status of git repo
+parse_git_dirty() {
+  status=`git status 2>&1 | tee`
+  dirty=`echo -n "${status}" 2> /dev/null | grep "modified:" &> /dev/null; echo "$?"`
+  untracked=`echo -n "${status}" 2> /dev/null | grep "Untracked files" &> /dev/null; echo "$?"`
+  ahead=`echo -n "${status}" 2> /dev/null | grep "Your branch is ahead of" &> /dev/null; echo "$?"`
+  newfile=`echo -n "${status}" 2> /dev/null | grep "new file:" &> /dev/null; echo "$?"`
+  renamed=`echo -n "${status}" 2> /dev/null | grep "renamed:" &> /dev/null; echo "$?"`
+  deleted=`echo -n "${status}" 2> /dev/null | grep "deleted:" &> /dev/null; echo "$?"`
+  bits=''
+  if [ "${renamed}" == "0" ]; then
+    bits=">${bits}"
+  fi
+  if [ "${ahead}" == "0" ]; then
+    bits="*${bits}"
+  fi
+  if [ "${newfile}" == "0" ]; then
+    bits="+${bits}"
+  fi
+  if [ "${untracked}" == "0" ]; then
+    bits="?${bits}"
+  fi
+  if [ "${deleted}" == "0" ]; then
+    bits="x${bits}"
+  fi
+  if [ "${dirty}" == "0" ]; then
+    bits="!${bits}"
+  fi
+  if [ ! "${bits}" == "" ]; then
+    echo " ${bits}"
+  else
+    echo ""
+  fi
+}
+
+if [ -n "$DESKTOP_SESSION" ];then
+    eval $(gnome-keyring-daemon --start)
+    export SSH_AUTH_SOCK
+fi
+
+export PS1="\[\e[36m\]\W\[\e[m\]\[\e[32m\]\`parse_git_branch\`\[\e[m\] $ "
+
+# fix for systemctl
+export XDG_RUNTIME_DIR=/run/user/`id -u`

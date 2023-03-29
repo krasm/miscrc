@@ -11,6 +11,7 @@ Plug 'https://github.com/klen/python-mode.git'
 Plug 'https://github.com/vimwiki/vimwiki.git'
 Plug 'https://github.com/tools-life/taskwiki'
 Plug 'https://github.com/jamessan/vim-gnupg.git'
+Plug 'https://github.com/dpelle/vim-LanguageTool.git'
 call plug#end()
 
 filetype plugin indent on
@@ -71,6 +72,9 @@ let &t_ti.="\e[1 q"
 let &t_SI.="\e[5 q"
 let &t_EI.="\e[1 q"
 let &t_te.="\e[0 q"
+
+" language tool
+let g:languagetool_jar='$HOME/opt/languagetool-6.0/languagetool-commandline.jar'
 
 " config for tabs
 " Move to previous/next

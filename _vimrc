@@ -13,6 +13,8 @@ Plug 'https://github.com/tools-life/taskwiki'
 Plug 'https://github.com/jamessan/vim-gnupg.git'
 Plug 'https://github.com/dpelle/vim-LanguageTool'
 Plug 'ellisonleao/gruvbox.nvim'
+Plug 'github/copilot.vim'
+
 call plug#end()
 
 filetype plugin indent on
@@ -36,7 +38,7 @@ set directory=.,./.backup,/tmp
 
 "colorscehem
 set background=light
-colorscheme gruvbox
+""colorscheme gruvbox
 
 "split navigations
 nnoremap <C-J> <C-W><C-J>
@@ -71,8 +73,17 @@ set laststatus=2   " Always show the statusline
 set encoding=utf-8 " Necessary to show Unicode glyphs
 
 let g:ale_linters = {
-      \   'python': ['flake8', 'pylint']
+      \   'python': ['flake8', 'pylint'],
+      \   'java': ['checkstyle']
       \}
+let g:ale_fixers = {
+    \ '*': ['remove_trailing_lines', 'trim_whitespace'],
+    \ 'java': ['google_java_format'],
+    \ 'xml': ['xmllint']
+    \ }
+
+let g:ale_fix_on_save = 1
+let g:ale_checkstyle_config = '$HOME/opt/java/google_checks.xml'
 
 let &t_ti.="\e[1 q"
 let &t_SI.="\e[5 q"

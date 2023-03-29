@@ -12,7 +12,7 @@ case $machine in
         if command -v apt &> /dev/null
         then
             sudo apt update -y &&  sudo apt upgrade -y
-            sudo apt install -y pylint3 python3-flake8 vim-nox curl git
+            sudo apt install -y python3-flake8 vim-nox curl git
         fi
     ;;
 esac
@@ -50,7 +50,7 @@ echo "installing system dependencies"
 if command -v apt &> /dev/null
 then
     sudo apt update -y &&  sudo apt upgrade -y
-    sudo apt install -y pylint3 python3-flake8 vim-nox curl git neovim python3-neovim python3-dev python3-pynvim python3-pip  taskwarrior
+    sudo apt install -y python3-flake8 vim-nox curl git neovim python3-neovim python3-dev python3-pynvim python3-pip  taskwarrior
     check_error $?
     sudo apt install checkstyle
     check_error $?

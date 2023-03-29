@@ -15,11 +15,17 @@ xterm*faceSize5: 24
 
 UXTerm*metaSendsEscape: true
 UXTerm*eightBitInput: false
+XTerm*metaSendsEscape: true
+XTerm*eightBitInput: false
 
-urxvt.termName: screen-256color
-urxvt.font:  xft:Inconsolata:size=14
-urxvt.boldFont:  xft:Inconsolata:size=14:style=bold
-urxvt.loginShell: true
+*.termName: screen-256color
+*.font:  xft:Inconsolata:size=12
+*.boldFont:  xft:Inconsolata:size=12:style=bold
+*.loginShell: true
+
+
+Emacs.font:  Inconsolata
+Emacs.boldFont:  Inconsolata
 
 !-------------------------------------------------------------------------------
 ! Xft settings
@@ -44,26 +50,26 @@ Xft.hintstyle:              hintslight
 
 ! Dark
 
-#define S_base03        #002b36
-#define S_base02        #073642
-#define S_base01        #586e75
-#define S_base00        #657b83
-#define S_base0         #839496
-#define S_base1         #93a1a1
-#define S_base2         #eee8d5
-#define S_base3         #fdf6e3
+!#define S_base03        #002b36
+!#define S_base02        #073642
+!#define S_base01        #586e75
+!#define S_base00        #657b83
+!#define S_base0         #839496
+!#define S_base1         #93a1a1
+!#define S_base2         #eee8d5
+!#define S_base3         #fdf6e3
 
 
 ! Light
 
-!#define S_base0         #6f8792
-!#define S_base03        #fdf6e3
-!#define S_base02        #eee8d5
-!#define S_base01        #93a1a1
-!#define S_base00        #839496
-!#define S_base1         #586e75
-!#define S_base2         #073642
-!#define S_base3         #002b36
+#define S_base0         #6f8792
+#define S_base03        #fdf6e3
+#define S_base02        #eee8d5
+#define S_base01        #93a1a1
+#define S_base00        #839496
+#define S_base1         #586e75
+#define S_base2         #073642
+#define S_base3         #002b36
 
 
 ! To only apply colors to your terminal, for example, prefix

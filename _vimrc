@@ -12,6 +12,7 @@ Plug 'https://github.com/vimwiki/vimwiki.git'
 Plug 'https://github.com/tools-life/taskwiki'
 Plug 'https://github.com/jamessan/vim-gnupg.git'
 Plug 'https://github.com/dpelle/vim-LanguageTool'
+Plug 'mfussenegger/nvim-jdtls'
 Plug 'ellisonleao/gruvbox.nvim'
 Plug 'github/copilot.vim'
 

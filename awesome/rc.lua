@@ -55,7 +55,7 @@ end
 
 -- {{{ Variable definitions
 -- Themes define colours, icons, font and wallpapers.
-beautiful.init(gears.filesystem.get_themes_dir() .. "xresources/theme.lua")
+beautiful.init(gears.filesystem.get_themes_dir() .. "sky/theme.lua")
 
 -- This is used later as the default terminal and editor to run.
 terminal = "x-terminal-emulator"
@@ -470,9 +470,9 @@ end ,
 -- xscreensaver
 awful.key ({modkey, "Mod1"}, "l", function() awful.util.spawn("xsecurelock") end, {}),
 -- xrandr
-awful.key({ modkey, "Shift" }, "d", 
-function() 
-    xrandr.xrandr() 
+awful.key({ modkey, "Shift" }, "d",
+function()
+    xrandr.xrandr()
 end,
 {description = "change monitor layouts"})
 )

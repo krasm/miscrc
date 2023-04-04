@@ -1,7 +1,0 @@
-escape ``
-#backtick 101 60 60 /sbin/iwgetid -r
-backtick 102 60 60 $HOME/.bat.sh
-hardstatus alwayslastline
-hardstatus string '%{= kG}[ %{G}%H %{g}][%= %{=kw}%?%-Lw%?%{r}(%{W}%n*%f%t%?(%u)%?%{r})%{w}%?%+Lw%?%?%= %{g}][%101`][%102`][%{B}%Y-%m-%d %{W}%c %{g}]'
-#caption always "%{.kc}%D %d.%m.%Y %=%{.kg} %4` %{.kc}%0c"
-shell -$SHELL

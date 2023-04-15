@@ -13,7 +13,6 @@ set sendmail="~/opt/bin/msmtp-enqueue"
 set use_from=yes
 set envelope_from=yes
 
-#mailboxes "+krasm"  "+gmail"
 mailboxes `find ~/mail/IN -maxdepth 1 -type l -printf "+'%f' "`
 
 set editor=nvim
@@ -35,7 +34,7 @@ hdr_order from: to: cc: date: subject:  # and in this order
 
 bind index g noop
 macro index A "<tag-pattern>~N<enter><tag-prefix><clear-flag>N<untag-pattern>.<enter>" "mark all new as read"
-#macro index t "<pipe-message>mutt2task.py<enter> <save-message>+TODO<enter>"
+macro index t "<pipe-message> grep \"\^Subject:\" | cut -d: -f2- | xargs task proj:TODO add <enter>"
 
 auto_view text/html
 alternative_order text/plain text/enriched text/html

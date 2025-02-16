@@ -234,7 +234,7 @@ require('lazy').setup({
   'scrooloose/nerdtree',
   'vimwiki/vimwiki',
   'tools-life/taskwiki',
-  'github/copilot',
+  'github/copilot.vim',
 
   -- NOTE: Plugins can also be added by using a table,
   -- with the first argument being the link and the following
